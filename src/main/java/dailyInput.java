@@ -7,6 +7,7 @@ public class dailyInput extends Time {
 	    //Loads initialGUI
         //Grabs the .CSV target file (targetCSV) to write to from initialGUI
         System.out.println("FIX");
+
         while(true){
             //Loads GUI
             //Holds program in place using a button while loop (reference MassScout_App project)
