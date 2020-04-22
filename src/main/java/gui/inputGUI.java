@@ -232,6 +232,7 @@ public class inputGUI extends JFrame{
                 }
 
                 onUpdate.updateInsulin(timeList, dosageList);
+
             }
         });
     }

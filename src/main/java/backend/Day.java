@@ -41,4 +41,9 @@ public class Day{
     public int[][] getInsulin() {
         return insulin;
     }
+
+    public String[] getDay(){
+        return day;
+    }
+
 }

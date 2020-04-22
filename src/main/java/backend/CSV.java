@@ -2,8 +2,8 @@ package backend;
 
 
 import com.opencsv.CSVWriter;
-import com.opencsv.CSWriter;
 import java.io.FileWriter;
+import java.util.ArrayList;
 
 public class CSV {
 
@@ -12,5 +12,13 @@ public class CSV {
     public CSV(){
 
         CSVWriter writer = new CSVWriter(new FileWriter(filename));
+        ArrayList<String[]> rows = new ArrayList<>();
+
+        String header = new String[]{};
+        String row1 =
+
+
+
+
     }
 }
