@@ -2,20 +2,24 @@ package backend;
 
 
 import com.opencsv.CSVWriter;
+import com.opencsv.CSVReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class CSV {
 
-    private String fileName;
+    public CSV(String fileName){
 
-    public CSV(){
+        try {
+            CSVWriter writer = new CSVWriter(new FileWriter(fileName));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-        CSVWriter writer = new CSVWriter(new FileWriter(filename));
         ArrayList<String[]> rows = new ArrayList<>();
 
-        String header = new String[]{};
-        String row1 =
+
 
 
 
