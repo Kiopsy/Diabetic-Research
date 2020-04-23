@@ -1,8 +1,10 @@
-package backend;
+package backend.objects;
 
-public class Injections {
+import backend.utility.Position;
 
-    private int[][] injectionsArr = new int[][]{
+public class GlucoseLevels{
+
+    private int[][] glucoseArr = new int[][]{
             {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -28,20 +30,20 @@ public class Injections {
             {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
     };
 
-    //note: times and insulin MUST be parallel arrays
-    public Injections(String[] times, int[] dosage){
+    //note: times and glucose MUST be parallel arrays
+    public GlucoseLevels(String[] times, int[] glucose){
         Position p = new Position(0,0);
         int columnPos = 0;
         int rowPos = 0;
-        for(int i = 0; i<dosage.length; i++){
+        for(int i = 0; i<glucose.length; i++){
             p = Time.positionAt(times[i]);
             columnPos = p.getColumnPosition();
             rowPos = p.getRowPosition();
-            injectionsArr[columnPos][rowPos] = dosage[i];
+            glucoseArr[columnPos][rowPos] = glucose[i];
         }
     }
 
-    public int[][] getInjectionsArr() {
-        return injectionsArr;
+    public int[][] getGlucoseArr() {
+        return glucoseArr;
     }
 }

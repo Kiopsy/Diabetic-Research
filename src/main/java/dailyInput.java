@@ -1,4 +1,4 @@
-import backend.Time;
+import backend.objects.Time;
 
 
 public class dailyInput extends Time {
