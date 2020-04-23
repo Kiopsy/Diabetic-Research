@@ -1,6 +1,7 @@
 package backend.objects;
 
 import backend.utility.Position;
+import java.lang.Math;
 
 public class Time {
 
@@ -73,5 +74,16 @@ public class Time {
         minutes += hours * 60;
 
         return minutes;
+    }
+
+    public static Position[] timeSpan(String startTime, int duration){
+        Position[] timeSpan = new Position[]{};
+        Position p = new Position(0,0);
+
+        double temp = duration/(double)5;
+        int count = Math.round(temp);
+
+        Time.positionAt(startTime);
+
     }
 }
