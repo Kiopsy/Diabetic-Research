@@ -1,5 +1,10 @@
 package backend;
 
+import backend.objects.Day;
+import backend.objects.GlucoseLevels;
+import backend.objects.Injections;
+import backend.objects.Time;
+
 import java.util.Arrays;
 
 

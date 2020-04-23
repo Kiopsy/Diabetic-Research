@@ -1,4 +1,6 @@
-package backend;
+package backend.objects;
+
+import backend.utility.Position;
 
 public class Time {
 

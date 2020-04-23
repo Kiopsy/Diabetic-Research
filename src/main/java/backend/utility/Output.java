@@ -1,4 +1,4 @@
-package backend;
+package backend.utility;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
