@@ -61,4 +61,17 @@ public class Time {
         }
         return time;
     }
+
+    //String time parameter must be in this format: hh:mm:ss
+    public static int timeStringToMinutes(String time){
+        int hours, minutes;
+        String hourMinSec[]= time.split(":");
+
+        hours = Integer.parseInt(hourMinSec[0]);
+        minutes = Integer.parseInt(hourMinSec[1]);
+
+        minutes += hours * 60;
+
+        return minutes;
+    }
 }
