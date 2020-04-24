@@ -1,7 +1,4 @@
-package backend.objects;
-
-import backend.utility.Position;
-import java.lang.Math;
+package backend;
 
 public class Time {
 
@@ -47,18 +44,6 @@ public class Time {
         }
         return position;
     }
-    //
-    public static int indexAt1DArr(String time){
-        String[] time1D = Time.time();
-        int index = 0;
-        for(int i = 0; i<time1D.length; i++){
-            if(time1D[i].equals(time)){
-               index = i;
-               break;
-            }
-        }
-        return index;
-    }
 
     //returns a 1D array of 5min intervals throughout the day
     public static String[] time(){
@@ -73,37 +58,5 @@ public class Time {
             }
         }
         return time;
-    }
-
-
-
-    //String time parameter must be in this format: hh:mm:ss
-    public static int timeStringToMinutes(String time){
-        int hours, minutes;
-        String hourMinSec[]= time.split(":");
-
-        hours = Integer.parseInt(hourMinSec[0]);
-        minutes = Integer.parseInt(hourMinSec[1]);
-
-        minutes += hours * 60;
-
-        return minutes;
-    }
-
-    public static Position[] timeSpan(String startTime, int duration){
-
-        Position p = new Position(0,0);
-        String[] times = Time.time();
-        double temp = duration/(double)5;
-        int count = (int)Math.round(temp);
-        Position[] timeSpan = new Position[count];
-
-        int startIndex = Time.indexAt1DArr(startTime);
-        for(int i = 0; i<timeSpan.length; i++){
-            timeSpan[i] = Time.positionAt(times[startIndex + i]);
-        }
-
-        return timeSpan;
-
     }
 }

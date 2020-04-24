@@ -37,18 +37,22 @@ public class Exercise {
         Position p = new Position(0,0);
         int columnPos = 0;
         int rowPos = 0;
+        Position[] exerciseDuration;
+        int durationInt = 0;
 
-        int count
         for(int i = 0; i<duration.length; i++){
-
+            durationInt = Time.timeStringToMinutes(duration[i]);
+            exerciseDuration = Time.timeSpan(startTimes[i], durationInt);
+            for(int k = 0; k<exerciseDuration.length; i++) {
+                p = exerciseDuration[k];
+                columnPos = p.getColumnPosition();
+                rowPos = p.getRowPosition();
+                exerciseArr[columnPos][rowPos] = true;
+            }
         }
+    }
 
-
-        for(int i = 0; i<dosage.length; i++){
-            p = Time.positionAt(times[i]);
-            columnPos = p.getColumnPosition();
-            rowPos = p.getRowPosition();
-            injectionsArr[columnPos][rowPos] = dosage[i];
-        }
+    public boolean[][] getExerciseArr() {
+        return exerciseArr;
     }
 }
