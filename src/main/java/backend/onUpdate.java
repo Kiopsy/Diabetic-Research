@@ -19,7 +19,7 @@ public class onUpdate {
         GlucoseLevels empty = new GlucoseLevels(Time.time(), tempGlucoseArr);
 
         Injections insulinToWrite = new Injections(t, d);
-        Day dayToUpdate = new Day(Time.timeArr, insulinToWrite.getInjectionsArr(), empty.getGlucoseArr());
+        //Day dayToUpdate = new Day(Time.timeArr, insulinToWrite.getInjectionsArr(), empty.getGlucoseArr());
     }
 
     public static void updateGlucose(String[] t, int[] d)
