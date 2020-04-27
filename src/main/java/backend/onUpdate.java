@@ -12,7 +12,7 @@ public class onUpdate {
 
     //creates a day object with only insulin injections
             //will create csv file with insulin inputs
-    public static void updateInsulin(String[] t, int[] d)
+    public static void updateInsulin(String[] t, double[] d)
     {
         int[] tempGlucoseArr = new int[288];
         Arrays.fill(tempGlucoseArr, 0);

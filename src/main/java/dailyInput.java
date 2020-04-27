@@ -1,3 +1,7 @@
+import gui.initialGUI;
+
+import javax.swing.*;
+
 public class dailyInput {
 
 	public static void main(String[] args) {
@@ -5,7 +9,12 @@ public class dailyInput {
 	    //Loads initialGUI
         //Grabs the .CSV target file (targetCSV) to write to from initialGUI
 
-        System.out.println("FIX");
+        initialGUI program = new initialGUI();
+        //Move this to the gui.inputGUI class, somehow?
+        program.setVisible(true);
+        program.setTitle("Import Target CSV");
+        program.setSize(450,250);
+        program.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         while(true){
             //Loads GUI

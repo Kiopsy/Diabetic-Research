@@ -223,7 +223,7 @@ public class inputGUI extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 String[] timeList = new String[14];
-                int[] dosageList = new int[14];
+                double[] dosageList = new double[14];
                 for(int i = 0; i<14; i++)
                 {
                     timeList[i] = stringTextList[i].getText();
