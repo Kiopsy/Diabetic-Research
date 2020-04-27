@@ -15,7 +15,7 @@ public class Input {
     private LongActingInsulin longInsulin;
     private Exercise workouts;
 
-    public static void parseCSV(String fileName)
+    public ObjectTransfer parseCSV(String fileName)
     {
         CSVReader parser;
         try {
@@ -68,6 +68,19 @@ public class Input {
                             glucoseIndex++;
                         }
 
+                        int glucoseCommaCountPlusOne = 0, glucoseIndexPlusOne = 0;
+                        while(glucoseCommaCount < 12)
+                        {
+                            if(list[i].charAt(glucoseIndex) == ',')
+                            {
+                                commaCount++;
+                            }
+                            glucoseIndex++;
+                        }
+
+                        //Find the length of the Glucose Index
+                        Integer glucoseLevel = Integer.valueOf(list[i].substring(glucoseIndex + 1, glucoseIndexPlusOne));
+
                         String time = list[i].substring(timeStampIndex + 11, timeStampIndex + 16);
                         System.out.println(time);
 
@@ -78,7 +91,11 @@ public class Input {
                             timeRound = ((timeRound / 10) + 1) * 10;
                             if(timeRound == 60)
                             {
-
+                                time = (Integer.valueOf(time.substring(0, 2)) + 1) + ":00";
+                            }
+                            else
+                            {
+                                time = time.substring(0, 3) + timeRound.toString();
                             }
                         }
                         else
@@ -86,6 +103,9 @@ public class Input {
                             timeRound = ((timeRound / 10) * 10) + 5;
                             time = time.substring(0, 3) + timeRound.toString();
                         }
+
+                        Position writeTo = Time.positionAt(time);
+                        glucose.writeGlucose(writeTo, glucoseLevel);
 
                     }
                     else if(list[i].substring(index, index + 5).equals("Carbs"))
@@ -100,10 +120,13 @@ public class Input {
                 }
             }
 
+            ObjectTransfer object = new ObjectTransfer(glucose, time, foodIntake, fastInsulin, longInsulin, workouts);
+            return object;
+
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-
+        return null;
     }
 }

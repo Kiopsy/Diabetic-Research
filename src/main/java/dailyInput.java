@@ -1,6 +1,4 @@
-import backend.objects.Time;
-
-public class dailyInput extends Time {
+public class dailyInput {
 
 	public static void main(String[] args) {
 

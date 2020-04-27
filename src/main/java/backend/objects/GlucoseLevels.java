@@ -43,6 +43,11 @@ public class GlucoseLevels{
         }
     }
 
+    public void writeGlucose(Position p, int glucose)
+    {
+        glucoseArr[p.getColumnPosition()][p.getRowPosition()] = glucose;
+    }
+
     public int[][] getGlucoseArr() {
         return glucoseArr;
     }
