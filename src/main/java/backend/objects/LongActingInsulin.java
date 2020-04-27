@@ -3,12 +3,12 @@ package backend.objects;
 public class LongActingInsulin extends Injections {
 
     //note: times and dosage MUST be parallel arrays
-    public LongActingInsulin(String[] times, int[] dosage) {
+    public LongActingInsulin(String[] times, double[] dosage) {
         super(times, dosage);
     }
 
     @Override
-    public int[][] getInjectionsArr() {
+    public double[][] getInjectionsArr() {
         return super.getInjectionsArr();
     }
 }

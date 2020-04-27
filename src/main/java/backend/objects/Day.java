@@ -4,10 +4,10 @@ public class Day{
 
     private String[] day = new String[288];
     private String[][] time;
-    private int[][] insulin;
+    private double[][] insulin;
     private int[][] glucose;
     //All inputs need to be sanitised for time, each array is assumed to be 288 long, or 2d 12x24
-    public Day(String[][] t, int[][] insul, int[][] g){
+    public Day(String[][] t, double[][] insul, int[][] g){
         //Array of each row in the final file
         // //Cell format: time_24hr-glucose_level-insulin_intake
         //Example cell: 2030-123-0 (represents 123 mg/deciliter of glucose in blood at 8:30pm, with no insulin intake)
@@ -38,7 +38,7 @@ public class Day{
         return glucose;
     }
 
-    public int[][] getInsulin() {
+    public double[][] getInsulin() {
         return insulin;
     }
 
