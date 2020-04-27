@@ -53,6 +53,7 @@ public class Input {
                         }
                         timeStampIndex++;
                     }
+                    //Add 11 to TimeStampIndex to skip the date
 
                     //This overarching If/Else loop checks for the type of event
                     if(list[i].substring(index, index + 3).equals("EGV"))
@@ -67,10 +68,24 @@ public class Input {
                             glucoseIndex++;
                         }
 
-                        String time = list[i].substring(timeStampIndex, timeStampIndex + 5);
+                        String time = list[i].substring(timeStampIndex + 11, timeStampIndex + 16);
                         System.out.println(time);
 
-                        
+                        //Round time to nearest
+                        Integer timeRound = Integer.valueOf(time.substring(3));
+                        if((timeRound / 5) % 2 == 1)
+                        {
+                            timeRound = ((timeRound / 10) + 1) * 10;
+                            if(timeRound == 60)
+                            {
+
+                            }
+                        }
+                        else
+                        {
+                            timeRound = ((timeRound / 10) * 10) + 5;
+                            time = time.substring(0, 3) + timeRound.toString();
+                        }
 
                     }
                     else if(list[i].substring(index, index + 5).equals("Carbs"))
