@@ -70,6 +70,8 @@ public class Input {
                         String time = list[i].substring(timeStampIndex, timeStampIndex + 5);
                         System.out.println(time);
 
+                        
+
                     }
                     else if(list[i].substring(index, index + 5).equals("Carbs"))
                     {
