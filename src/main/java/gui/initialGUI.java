@@ -1,16 +1,29 @@
 package gui;
 
+import backend.onUpdate;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 
 public class initialGUI extends JFrame{
 
-    public initialGUI() {
+    private boolean buttonPressed = false;
+    public initialGUI(){
+
+    }
+
+    public String GUI() {
 
         GridBagConstraints c = new GridBagConstraints();
         JPanel screen = new JPanel(new GridBagLayout());
+        JFrame frame = new JFrame();
+
+        frame.setTitle("Import Target CSV");
+        frame.setSize(450,250);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JButton update = new JButton("Update");
         JTextField fileAddress = new JTextField("Enter file address here:", 20);
@@ -28,11 +41,27 @@ public class initialGUI extends JFrame{
         c.gridy = 5;
         screen.add(fileAddress, c);
 
-        c.gridwidth = 1;
-        c.gridx = 4;
-        c.gridy = 5;
+        c.gridwidth = 4;
+        c.gridx = 1;
+        c.gridy = 6;
         screen.add(update, c);
 
         add(screen);
+        frame.setVisible(true);
+        screen.setVisible(true);
+
+        while(!buttonPressed) {
+            update.addActionListener(new ActionListener() {
+
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    buttonPressed = true;
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                }
+            });
+
+        }
+
+        return fileAddress.getText();
     }
 }
