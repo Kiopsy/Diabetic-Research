@@ -11,7 +11,6 @@ public class dailyInput{
         initialGUI program = new initialGUI();
         String fileAddress = program.GUI();
         System.out.println(fileAddress);
-
         program.closeGUI();
 
         while(true){

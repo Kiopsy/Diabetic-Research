@@ -28,6 +28,7 @@ public class initialGUI extends JFrame{
         frame.setTitle("Import Target CSV");
         frame.setSize(450,250);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLocationRelativeTo(null);
 
         JButton update = new JButton("Update");
         JTextField fileAddress = new JTextField("Enter file address here:", 20);
