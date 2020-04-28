@@ -2,6 +2,8 @@ package backend.utility;
 
 import backend.objects.*;
 import com.opencsv.CSVReader;
+
+import javax.swing.*;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
@@ -53,7 +55,31 @@ public class Input {
                         }
                         timeStampIndex++;
                     }
-                    //Add 11 to TimeStampIndex to skip the date
+
+                    String time = list[i].substring(timeStampIndex + 11, timeStampIndex + 16);
+                    System.out.println(time);
+                    //Round time to nearest
+                    Integer timeRound = Integer.valueOf(time.substring(3));
+                    if((timeRound / 5) % 2 == 1)
+                    {
+                        timeRound = ((timeRound / 10) + 1) * 10;
+                        if(timeRound == 60)
+                        {
+                            time = (Integer.valueOf(time.substring(0, 2)) + 1) + ":00";
+                        }
+                        else
+                        {
+                            time = time.substring(0, 3) + timeRound.toString();
+                        }
+                    }
+                    else
+                    {
+                        timeRound = ((timeRound / 10) * 10) + 5;
+                        time = time.substring(0, 3) + timeRound.toString();
+                    }
+
+                    //Gets position for writing to
+                    Position writeTo = Time.positionAt(time);
 
                     //This overarching If/Else loop checks for the type of event
                     if(list[i].substring(index, index + 3).equals("EGV"))
@@ -81,42 +107,49 @@ public class Input {
                         //Find the length of the Glucose Index
                         Integer glucoseLevel = Integer.valueOf(list[i].substring(glucoseIndex + 1, glucoseIndexPlusOne));
 
-                        String time = list[i].substring(timeStampIndex + 11, timeStampIndex + 16);
-                        System.out.println(time);
-
-                        //Round time to nearest
-                        Integer timeRound = Integer.valueOf(time.substring(3));
-                        if((timeRound / 5) % 2 == 1)
-                        {
-                            timeRound = ((timeRound / 10) + 1) * 10;
-                            if(timeRound == 60)
-                            {
-                                time = (Integer.valueOf(time.substring(0, 2)) + 1) + ":00";
-                            }
-                            else
-                            {
-                                time = time.substring(0, 3) + timeRound.toString();
-                            }
-                        }
-                        else
-                        {
-                            timeRound = ((timeRound / 10) * 10) + 5;
-                            time = time.substring(0, 3) + timeRound.toString();
-                        }
-
-                        Position writeTo = Time.positionAt(time);
+                        //Writes glucose
                         glucose.writeGlucose(writeTo, glucoseLevel);
 
                     }
                     else if(list[i].substring(index, index + 5).equals("Carbs"))
                     {
-
+                        //TODO: Implement Carbs Writing
                     }
                     else if(list[i].substring(index, index + 7).equals("Insulin"))
                     {
+                        int InsulinCommaCount = 0, InsulinIndex = 0;
+                        while(InsulinCommaCount < 3)
+                        {
+                            if(list[i].charAt(InsulinIndex) == ',')
+                            {
+                                InsulinCommaCount++;
+                            }
+                            InsulinIndex++;
+                        }
 
+                        int InsulinLevelCommaCount = 0, InsulinLevelIndex = 0, InsulinLevelIndexPlusOne = 0;
+                        while(InsulinLevelCommaCount < 9)
+                        {
+                            if(list[i].charAt(InsulinLevelIndex) == ',' && InsulinLevelCommaCount < 8)
+                            {
+                                InsulinLevelCommaCount++;
+                            }
+                            InsulinLevelIndex++;
+                            InsulinLevelIndexPlusOne++;
+                        }
+
+                        double injection = Double.valueOf(list[i].substring(InsulinLevelIndex, InsulinLevelIndexPlusOne - 1));
+
+                        if(list[i].substring(InsulinIndex + 1, InsulinIndex + 2).equals("F"))
+                        {
+                            fastInsulin.updateInjections(writeTo, injection);
+                        }
+                        else
+                        {
+                            longInsulin.updateInjections(writeTo, injection);
+                        }
                     }
-
+                    //TODO: Excersize
                 }
             }
 

@@ -43,6 +43,11 @@ public class Injections {
         }
     }
 
+    public void updateInjections(Position pos, double level)
+    {
+        injectionsArr[pos.getColumnPosition()][pos.getRowPosition()] = level;
+    }
+
     public double[][] getInjectionsArr() {
         return injectionsArr;
     }
