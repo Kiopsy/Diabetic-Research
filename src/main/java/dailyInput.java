@@ -12,6 +12,8 @@ public class dailyInput{
         String fileAddress = program.GUI();
         System.out.println(fileAddress);
 
+        program.closeGUI();
+
         while(true){
             //Loads GUI
             //Holds program in place using a button while loop (reference MassScout_App project)

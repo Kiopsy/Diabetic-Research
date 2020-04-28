@@ -11,16 +11,20 @@ import java.awt.event.WindowEvent;
 public class initialGUI extends JFrame{
 
     private boolean buttonPressed = false;
+    private JFrame frame;
     public initialGUI(){
 
+    }
+
+    public void closeGUI(){
+        frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
     }
 
     public String GUI() {
 
         GridBagConstraints c = new GridBagConstraints();
         JPanel screen = new JPanel(new GridBagLayout());
-        JFrame frame = new JFrame();
-
+        frame = new JFrame();
         frame.setTitle("Import Target CSV");
         frame.setSize(450,250);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -47,8 +51,8 @@ public class initialGUI extends JFrame{
         screen.add(update, c);
 
         add(screen);
+        frame.getContentPane().add(screen);
         frame.setVisible(true);
-        screen.setVisible(true);
 
         while(!buttonPressed) {
             update.addActionListener(new ActionListener() {
@@ -56,7 +60,6 @@ public class initialGUI extends JFrame{
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     buttonPressed = true;
-                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
                 }
             });
 
@@ -64,4 +67,6 @@ public class initialGUI extends JFrame{
 
         return fileAddress.getText();
     }
+
+
 }
