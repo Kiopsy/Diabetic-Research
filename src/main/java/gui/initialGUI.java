@@ -7,6 +7,10 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
+import java.io.File;
+
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileSystemView;
 
 public class initialGUI extends JFrame{
 
@@ -31,30 +35,64 @@ public class initialGUI extends JFrame{
         frame.setLocationRelativeTo(null);
 
         JButton update = new JButton("Update");
+        JButton select = new JButton("Select File");
         JTextField fileAddress = new JTextField("Enter file address here:", 20);
         JLabel title = new JLabel("Import Target CSV");
+        JLabel s1 = new JLabel(" ");
+        JLabel s2 = new JLabel(" ");
+
 
         title.setFont(new Font("TimesRoman", Font.BOLD, 18));
 
         c.gridwidth = 4;
         c.gridx = 1;
-        c.gridy = 4;
+        c.gridy = 3;
         screen.add(title, c);
+
+        c.gridwidth = 4;
+        c.gridx = 1;
+        c.gridy = 4;
+        screen.add(s1, c);
 
         c.gridwidth = 3;
         c.gridx = 1;
         c.gridy = 5;
         screen.add(fileAddress, c);
 
+        c.gridwidth = 1;
+        c.gridx = 4;
+        c.gridy = 5;
+        screen.add(select, c);
+
         c.gridwidth = 4;
         c.gridx = 1;
         c.gridy = 6;
+        screen.add(s2, c);
+
+        c.gridwidth = 4;
+        c.gridx = 1;
+        c.gridy = 7;
         screen.add(update, c);
 
         add(screen);
         frame.getContentPane().add(screen);
         frame.setVisible(true);
 
+        select.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
+
+                int returnValue = jfc.showOpenDialog(null);
+
+                if (returnValue == JFileChooser.APPROVE_OPTION) {
+                    File selectedFile = jfc.getSelectedFile();
+                    fileAddress.setText(selectedFile.getAbsolutePath());
+                }
+            }
+        });
+        
         while(!buttonPressed) {
             update.addActionListener(new ActionListener() {
 
