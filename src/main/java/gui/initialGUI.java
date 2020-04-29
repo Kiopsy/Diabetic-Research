@@ -82,12 +82,12 @@ public class initialGUI extends JFrame{
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
+                JFileChooser fileChooser = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
 
-                int returnValue = jfc.showOpenDialog(null);
+                int returnValue = fileChooser.showOpenDialog(null);
 
                 if (returnValue == JFileChooser.APPROVE_OPTION) {
-                    File selectedFile = jfc.getSelectedFile();
+                    File selectedFile = fileChooser.getSelectedFile();
                     fileAddress.setText(selectedFile.getAbsolutePath());
                 }
             }
