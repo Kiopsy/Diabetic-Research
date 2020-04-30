@@ -2,8 +2,6 @@ package backend.utility;
 
 import backend.objects.*;
 import com.opencsv.CSVReader;
-
-import javax.swing.*;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
@@ -24,9 +22,8 @@ public class Input {
 
             parser = new CSVReader(new FileReader(fileName));
             List<String[]> allRows = parser.readAll();
+            //Possible Error Point
             String[] list = (String[]) allRows.toArray();
-
-            String previousTime = "00:00";
 
             for(int i = 0; i < list.length; i++)
             {
@@ -89,7 +86,7 @@ public class Input {
                         {
                             if(list[i].charAt(glucoseIndex) == ',')
                             {
-                                commaCount++;
+                                glucoseCommaCount++;
                             }
                             glucoseIndex++;
                         }
@@ -97,15 +94,15 @@ public class Input {
                         int glucoseCommaCountPlusOne = 0, glucoseIndexPlusOne = 0;
                         while(glucoseCommaCount < 12)
                         {
-                            if(list[i].charAt(glucoseIndex) == ',')
+                            if(list[i].charAt(glucoseIndexPlusOne) == ',')
                             {
-                                commaCount++;
+                                glucoseCommaCountPlusOne++;
                             }
-                            glucoseIndex++;
+                            glucoseIndexPlusOne++;
                         }
 
                         //Find the length of the Glucose Index
-                        Integer glucoseLevel = Integer.valueOf(list[i].substring(glucoseIndex + 1, glucoseIndexPlusOne));
+                        Integer glucoseLevel = Integer.valueOf(list[i].substring(glucoseIndex, glucoseIndexPlusOne));
 
                         //Writes glucose
                         glucose.writeGlucose(writeTo, glucoseLevel);
@@ -114,6 +111,18 @@ public class Input {
                     else if(list[i].substring(index, index + 5).equals("Carbs"))
                     {
                         //TODO: Implement Carbs Writing
+                        int carbsCommaCount = 0, carbsIndex = 0;
+                        while(carbsCommaCount < 8)
+                        {
+                            if(list[i].charAt(carbsIndex) == ',')
+                            {
+                                carbsCommaCount++;
+                            }
+                            carbsIndex++;
+                        }
+
+                        Integer carbs = Integer.valueOf(list[i].substring(carbsIndex));
+
                     }
                     else if(list[i].substring(index, index + 7).equals("Insulin"))
                     {
@@ -140,7 +149,7 @@ public class Input {
 
                         double injection = Double.valueOf(list[i].substring(InsulinLevelIndex, InsulinLevelIndexPlusOne - 1));
 
-                        if(list[i].substring(InsulinIndex + 1, InsulinIndex + 2).equals("F"))
+                        if(list[i].substring(InsulinIndex, InsulinIndex + 1).equals("F"))
                         {
                             fastInsulin.updateInjections(writeTo, injection);
                         }
