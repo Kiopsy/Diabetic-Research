@@ -8,12 +8,16 @@ import java.util.List;
 
 public class Input {
 
-    private GlucoseLevels glucose;
-    private Time time;
-    private Carbs foodIntake;
-    private FastActingInsulin fastInsulin;
-    private LongActingInsulin longInsulin;
-    private Exercise workouts;
+    private int[] glucose;
+    private String[] glucoseTime;
+    private int[] carbs;
+    private String[] carbsTime;
+    private double[] fastActingDosage;
+    private String[] fastActingTime;
+    private double[] longActingDosage;
+    private String[] longActingTime;
+    private String[] exerciseStartTimes;
+    private String[] exerciseDuration;
 
     public ObjectTransfer parseCSV(String fileName)
     {
