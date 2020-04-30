@@ -157,11 +157,13 @@ public class Input {
 
                         if(list[i].substring(InsulinIndex, InsulinIndex + 1).equals("F"))
                         {
-                            fastInsulin.updateInjections(writeTo, injection);
+                            fastActingDosage.add(injection);
+                            fastActingTime.add(time);
                         }
                         else
                         {
-                            longInsulin.updateInjections(writeTo, injection);
+                            longActingDosage.add(injection);
+                            longActingTime.add(time);
                         }
                     }
                     else if(list[i].substring(index, index + 8).equals("Excersize"))
