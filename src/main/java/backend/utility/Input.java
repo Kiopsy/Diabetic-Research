@@ -160,7 +160,7 @@ public class Input {
                     }
                     else if(list[i].substring(index, index + 8).equals("Excersize"))
                     {
-                        //TODO: Excersize
+                        //TODO: Exercise
                     }
                 }
             }
