@@ -1,67 +1,107 @@
 package backend.objects;
 
 public class ObjectTransfer {
-    private GlucoseLevels glucose;
-    private Time time;
-    private Carbs foodIntake;
-    private FastActingInsulin fastInsulin;
-    private LongActingInsulin longInsulin;
-    private Exercise workouts;
+    private int[] glucose;
+    private String[] glucoseTime;
+    private int[] carbs;
+    private String[] carbsTime;
+    private double[] fastActingDosage;
+    private String[] fastActingTime;
+    private double[] longActingDosage;
+    private String[] longActingTime;
+    private String[] exerciseStartTimes;
+    private String[] exerciseDuration;
 
-    public ObjectTransfer(GlucoseLevels glucose, Time time, Carbs foodIntake, FastActingInsulin fastInsulin, LongActingInsulin longInsulin, Exercise workouts) {
+    public ObjectTransfer(int[] glucose, String[] glucoseTime, int[] carbs, String[] carbsTime, double[] fastActingDosage, String[] fastActingTime, double[] longActingDosage, String[] longActingTime, String[] exerciseStartTimes, String[] exerciseDuration) {
         this.glucose = glucose;
-        this.time = time;
-        this.foodIntake = foodIntake;
-        this.fastInsulin = fastInsulin;
-        this.longInsulin = longInsulin;
-        this.workouts = workouts;
+        this.glucoseTime = glucoseTime;
+        this.carbs = carbs;
+        this.carbsTime = carbsTime;
+        this.fastActingDosage = fastActingDosage;
+        this.fastActingTime = fastActingTime;
+        this.longActingDosage = longActingDosage;
+        this.longActingTime = longActingTime;
+        this.exerciseStartTimes = exerciseStartTimes;
+        this.exerciseDuration = exerciseDuration;
     }
 
-    public GlucoseLevels getGlucose() {
+    public int[] getGlucose() {
         return glucose;
     }
 
-    public void setGlucose(GlucoseLevels glucose) {
+    public void setGlucose(int[] glucose) {
         this.glucose = glucose;
     }
 
-    public Time getTime() {
-        return time;
+    public String[] getGlucoseTime() {
+        return glucoseTime;
     }
 
-    public void setTime(Time time) {
-        this.time = time;
+    public void setGlucoseTime(String[] glucoseTime) {
+        this.glucoseTime = glucoseTime;
     }
 
-    public Carbs getFoodIntake() {
-        return foodIntake;
+    public int[] getCarbs() {
+        return carbs;
     }
 
-    public void setFoodIntake(Carbs foodIntake) {
-        this.foodIntake = foodIntake;
+    public void setCarbs(int[] carbs) {
+        this.carbs = carbs;
     }
 
-    public FastActingInsulin getFastInsulin() {
-        return fastInsulin;
+    public String[] getCarbsTime() {
+        return carbsTime;
     }
 
-    public void setFastInsulin(FastActingInsulin fastInsulin) {
-        this.fastInsulin = fastInsulin;
+    public void setCarbsTime(String[] carbsTime) {
+        this.carbsTime = carbsTime;
     }
 
-    public LongActingInsulin getLongInsulin() {
-        return longInsulin;
+    public double[] getFastActingDosage() {
+        return fastActingDosage;
     }
 
-    public void setLongInsulin(LongActingInsulin longInsulin) {
-        this.longInsulin = longInsulin;
+    public void setFastActingDosage(double[] fastActingDosage) {
+        this.fastActingDosage = fastActingDosage;
     }
 
-    public Exercise getWorkouts() {
-        return workouts;
+    public String[] getFastActingTime() {
+        return fastActingTime;
     }
 
-    public void setWorkouts(Exercise workouts) {
-        this.workouts = workouts;
+    public void setFastActingTime(String[] fastActingTime) {
+        this.fastActingTime = fastActingTime;
+    }
+
+    public double[] getLongActingDosage() {
+        return longActingDosage;
+    }
+
+    public void setLongActingDosage(double[] longActingDosage) {
+        this.longActingDosage = longActingDosage;
+    }
+
+    public String[] getLongActingTime() {
+        return longActingTime;
+    }
+
+    public void setLongActingTime(String[] longActingTime) {
+        this.longActingTime = longActingTime;
+    }
+
+    public String[] getExerciseStartTimes() {
+        return exerciseStartTimes;
+    }
+
+    public void setExerciseStartTimes(String[] exerciseStartTimes) {
+        this.exerciseStartTimes = exerciseStartTimes;
+    }
+
+    public String[] getExerciseDuration() {
+        return exerciseDuration;
+    }
+
+    public void setExerciseDuration(String[] exerciseDuration) {
+        this.exerciseDuration = exerciseDuration;
     }
 }

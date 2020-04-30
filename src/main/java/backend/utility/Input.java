@@ -110,7 +110,8 @@ public class Input {
                         Integer glucoseLevel = Integer.valueOf(list[i].substring(glucoseIndex, glucoseIndexPlusOne));
 
                         //Writes glucose
-                        glucose.writeGlucose(writeTo, glucoseLevel);
+                        glucose.add(glucoseLevel);
+                        glucoseTime.add(time);
 
                     }
                     else if(list[i].substring(index, index + 5).equals("Carbs"))
