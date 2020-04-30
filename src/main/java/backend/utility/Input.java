@@ -10,15 +10,15 @@ import java.util.List;
 public class Input {
 
     private ArrayList<Integer> glucose = new ArrayList<Integer>();
-    private String[] glucoseTime;
-    private int[] carbs;
-    private String[] carbsTime;
-    private double[] fastActingDosage;
-    private String[] fastActingTime;
-    private double[] longActingDosage;
-    private String[] longActingTime;
-    private String[] exerciseStartTimes;
-    private String[] exerciseDuration;
+    private ArrayList<String> glucoseTime = new ArrayList<String>();
+    private ArrayList<Integer> carbs = new ArrayList<Integer>();
+    private ArrayList<String>  carbsTime = new ArrayList<String>();
+    private ArrayList<Double> fastActingDosage = new ArrayList<Double>();
+    private ArrayList<String> fastActingTime = new ArrayList<String>();
+    private ArrayList<Double> longActingDosage = new ArrayList<Double>();
+    private ArrayList<String> longActingTime = new ArrayList<String>();
+    private ArrayList<String> exerciseStartTimes = new ArrayList<String>();
+    private ArrayList<String>  exerciseDuration  = new ArrayList<String>();
 
     public ObjectTransfer parseCSV(String fileName)
     {
