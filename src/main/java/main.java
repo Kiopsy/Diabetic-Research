@@ -2,7 +2,7 @@ import gui.initialGUI;
 
 import javax.swing.*;
 
-public class dailyInput{
+public class main {
 
 	public static void main(String[] args) {
 
