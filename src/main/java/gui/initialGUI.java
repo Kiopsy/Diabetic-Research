@@ -1,7 +1,5 @@
 package gui;
 
-import backend.onUpdate;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;

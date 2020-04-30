@@ -149,7 +149,10 @@ public class Input {
                             longInsulin.updateInjections(writeTo, injection);
                         }
                     }
-                    //TODO: Excersize
+                    else if(list[i].substring(index, index + 8).equals("Excersize"))
+                    {
+                        //TODO: Excersize
+                    }
                 }
             }
 
