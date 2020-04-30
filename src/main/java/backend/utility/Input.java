@@ -4,11 +4,12 @@ import backend.objects.*;
 import com.opencsv.CSVReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Input {
 
-    private int[] glucose;
+    private ArrayList<Integer> glucose = new ArrayList<Integer>();
     private String[] glucoseTime;
     private int[] carbs;
     private String[] carbsTime;
