@@ -1,20 +1,23 @@
 package backend.objects;
 
-public class ObjectTransfer {
-    private GlucoseLevels glucose;
-    private Time time;
-    private Carbs foodIntake;
-    private FastActingInsulin fastInsulin;
-    private LongActingInsulin longInsulin;
-    private Exercise workouts;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
-    public ObjectTransfer(GlucoseLevels glucose, Time time, Carbs foodIntake, FastActingInsulin fastInsulin, LongActingInsulin longInsulin, Exercise workouts) {
-        this.glucose = glucose;
-        this.time = time;
-        this.foodIntake = foodIntake;
-        this.fastInsulin = fastInsulin;
-        this.longInsulin = longInsulin;
-        this.workouts = workouts;
+public class ObjectTransfer {
+    private int[] glucose;
+    private String[] glucoseTime;
+    private int[] carbs;
+    private String[] carbsTime;
+    private double[] fastActingDosage;
+    private String[] fastActingTime;
+    private double[] longActingDosage;
+    private String[] longActingTime;
+    private String[] exerciseStartTimes;
+    private String[] exerciseDuration;
+
+    public ObjectTransfer(ArrayList<Integer> gl, ArrayList<String> glTime, ArrayList<Integer> carb, ArrayList<String>  carbTime, ArrayList<Double> fADosage, ArrayList<String> fATime, ArrayList<Double> lADosage, ArrayList<String> lATime, ArrayList<String> exStartTimes, ArrayList<String>  exDuration) {
+        ArrayList<ArrayList>
+        arrayListToArray(gl, glTime, carb, carbTime, fADosage, fATime, lADosage, lATime, exStartTimes, exDuration);
     }
 
     public GlucoseLevels getGlucose() {
@@ -63,5 +66,9 @@ public class ObjectTransfer {
 
     public void setWorkouts(Exercise workouts) {
         this.workouts = workouts;
+    }
+
+    public void arrayListToArray(ArrayList<Integer> gl, ArrayList<String> glTime, ArrayList<Integer> carb, ArrayList<String>  carbTime, ArrayList<Double> fADosage, ArrayList<String> fATime, ArrayList<Double> lADosage, ArrayList<String> lATime, ArrayList<String> exStartTimes, ArrayList<String>  exDuration){
+
     }
 }
