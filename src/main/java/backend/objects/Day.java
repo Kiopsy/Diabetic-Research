@@ -4,24 +4,29 @@ public class Day{
 
     private String[] day = new String[288];
     private String[][] time;
+    private int[][] glucose;
+    private int[][] carbs;
+    private boolean[][] exercise;
     private double[][] fastActingInsulin;
     private double[][]longActingInsulin;
-    private int[][] carbs;
-    private int[][] glucose;
+
     //All inputs need to be sanitised for time, each array is assumed to be 288 long, or 2d 12x24
-    public Day(String[][] t, double[][] insul, int[][] g){
+    public Day(int[][] glucose, int[][] carbs, boolean[][] exercise, double[][] fastActingInsulin, double[][] longActingInsulin){
         //Array of each row in the final file
-        // //Cell format: time_24hr-glucose_level-insulin_intake
-        //Example cell: 2030-123-0 (represents 123 mg/deciliter of glucose in blood at 8:30pm, with no insulin intake)
-        time = t;
-        insulin = insul;
-        glucose = g;
+        // //Cell format: time_24hr-glucose_level-carbs_intake-whether_exercising-fastActingInsulin_intake-longActingInsulin_intake
+        //Example cell: 20:30-123-20-false-0-23 (represents 123 mg/deciliter of glucose in blood at 8:30pm, 20 grams of carbs eaten, no exercise at given time, no fast acting insulin, and 23u of long acting insulin)
+        this.time = Time.timeArr;
+        this.glucose = glucose;
+        this.carbs = carbs;
+        this.exercise = exercise;
+        this.fastActingInsulin = fastActingInsulin;
+        this.longActingInsulin = longActingInsulin;
 
         for(int i = 0; i < 288; i++)
         {
             int x = i / 24;
             int y = i % 24;
-            day[i] = time[x][y] + "-" + glucose[x][y] + "-" + insulin[x][y];
+            day[i] = time[x][y] + "-" + glucose[x][y] + "-" + carbs[x][y] + "-" + exercise[x][y] + "-" + fastActingInsulin[x][y] + "-" + longActingInsulin[x][y];
         }
     }
 
@@ -40,8 +45,20 @@ public class Day{
         return glucose;
     }
 
-    public double[][] getInsulin() {
+    public double[][] getCarbs() {
         return insulin;
+    }
+
+    public boolean[][] getExercise() {
+        return exercise;
+    }
+
+    public double[][] getFastActingInsulin() {
+        return fastActingInsulin;
+    }
+
+    public double[][] getLongActingInsulin() {
+        return longActingInsulin;
     }
 
     public String[] getDay(){
