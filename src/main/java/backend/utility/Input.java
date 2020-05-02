@@ -116,7 +116,7 @@ public class Input {
                     }
                     else if(list[i].substring(index, index + 5).equals("Carbs"))
                     {
-                        //TODO: Implement Carbs Writing
+
                         int carbsCommaCount = 0, carbsIndex = 0;
                         while(carbsCommaCount < 8)
                         {
@@ -169,9 +169,22 @@ public class Input {
                             longActingTime.add(time);
                         }
                     }
-                    else if(list[i].substring(index, index + 8).equals("Excersize"))
+                    else if(list[i].substring(index, index + 8).equals("Execersize"))
                     {
-                        //TODO: Exercise
+                        int execersizeCommaCount = 0, execersizeIndex = 0;
+                        while(execersizeCommaCount < 2)
+                        {
+                            if(list[i].charAt(execersizeIndex) == ',')
+                            {
+                                execersizeCommaCount++;
+                            }
+                            execersizeIndex++;
+                        }
+
+                        String execersizeLength = list[i].substring(execersizeIndex, execersizeIndex + 5);
+
+                        exerciseDuration.add(execersizeLength);
+                        exerciseStartTimes.add(time);
                     }
                 }
             }
