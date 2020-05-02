@@ -19,7 +19,6 @@ public class Input {
     private ArrayList<String> longActingTime = new ArrayList<String>();
     private ArrayList<String> exerciseStartTimes = new ArrayList<String>();
     private ArrayList<String>  exerciseDuration  = new ArrayList<String>();
-    private ArrayList<ArrayList> dayComponents = new ArrayList<ArrayList>();
 
     public ObjectTransfer parseCSV(String fileName)
     {
@@ -187,19 +186,8 @@ public class Input {
                     }
                 }
             }
-
-            dayComponents.add(glucose);
-            dayComponents.add(glucoseTime);
-            dayComponents.add(carbs);
-            dayComponents.add(carbsTime);
-            dayComponents.add(fastActingDosage);
-            dayComponents.add(fastActingTime);
-            dayComponents.add(longActingDosage);
-            dayComponents.add(longActingTime);
-            dayComponents.add(exerciseStartTimes);
-            dayComponents.add(exerciseDuration);
-
-            ObjectTransfer object = new ObjectTransfer(glucose, time, foodIntake, fastInsulin, longInsulin, workouts);
+           
+            ObjectTransfer object = new ObjectTransfer(glucose, glucoseTime, carbs, carbsTime, fastActingDosage, fastActingTime, longActingDosage, longActingTime, exerciseStartTimes, exerciseDuration);
             return object;
 
         } catch (IOException e) {

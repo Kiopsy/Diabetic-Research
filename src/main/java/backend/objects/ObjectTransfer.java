@@ -15,60 +15,120 @@ public class ObjectTransfer {
     private String[] exerciseStartTimes;
     private String[] exerciseDuration;
 
-    public ObjectTransfer(ArrayList<Integer> gl, ArrayList<String> glTime, ArrayList<Integer> carb, ArrayList<String>  carbTime, ArrayList<Double> fADosage, ArrayList<String> fATime, ArrayList<Double> lADosage, ArrayList<String> lATime, ArrayList<String> exStartTimes, ArrayList<String>  exDuration) {
-        ArrayList<ArrayList>
-        arrayListToArray(gl, glTime, carb, carbTime, fADosage, fATime, lADosage, lATime, exStartTimes, exDuration);
+    public ObjectTransfer(ArrayList<Integer> glucose, ArrayList<String> glucoseTime, ArrayList<Integer> carbs, ArrayList<String>  carbsTime, ArrayList<Double> fastActingDosage, ArrayList<String> fastActingTime, ArrayList<Double> longActingDosage, ArrayList<String> longActingTime, ArrayList<String> exerciseStartTimes, ArrayList<String>  exerciseDuration) {
+        this.glucose = toArrayInteger(glucose);
+        this.glucoseTime = toArrayString(glucoseTime);
+        this.carbs = toArrayInteger(carbs);
+        this.carbsTime = toArrayString(carbsTime);
+        this.fastActingDosage = toArrayDouble(fastActingDosage);
+        this.fastActingTime = toArrayString(fastActingTime);
+        this.longActingDosage = toArrayDouble(longActingDosage);
+        this.longActingTime = toArrayString(longActingTime);
+        this.exerciseStartTimes = toArrayString(exerciseStartTimes);
+        this.exerciseDuration = toArrayString(exerciseDuration);
     }
 
-    public GlucoseLevels getGlucose() {
+    public int[] toArrayInteger(ArrayList<Integer> values){
+        int[] temp = new int[values.size()];
+        for(int i = 0; i<values.size(); i++){
+            temp[i] = values.get(i);
+        }
+        return temp;
+    }
+
+    public String[] toArrayString(ArrayList<String> values){
+        String[] temp = new String[values.size()];
+        for(int i = 0; i<values.size(); i++){
+            temp[i] = values.get(i);
+        }
+        return temp;
+    }
+
+    public double[] toArrayDouble(ArrayList<Double> values){
+        double[] temp = new double[values.size()];
+        for(int i = 0; i<values.size(); i++){
+            temp[i] = values.get(i);
+        }
+        return temp;
+    }
+
+    public int[] getGlucose() {
         return glucose;
     }
 
-    public void setGlucose(GlucoseLevels glucose) {
+    public void setGlucose(int[] glucose) {
         this.glucose = glucose;
     }
 
-    public Time getTime() {
-        return time;
+    public String[] getGlucoseTime() {
+        return glucoseTime;
     }
 
-    public void setTime(Time time) {
-        this.time = time;
+    public void setGlucoseTime(String[] glucoseTime) {
+        this.glucoseTime = glucoseTime;
     }
 
-    public Carbs getFoodIntake() {
-        return foodIntake;
+    public int[] getCarbs() {
+        return carbs;
     }
 
-    public void setFoodIntake(Carbs foodIntake) {
-        this.foodIntake = foodIntake;
+    public void setCarbs(int[] carbs) {
+        this.carbs = carbs;
     }
 
-    public FastActingInsulin getFastInsulin() {
-        return fastInsulin;
+    public String[] getCarbsTime() {
+        return carbsTime;
     }
 
-    public void setFastInsulin(FastActingInsulin fastInsulin) {
-        this.fastInsulin = fastInsulin;
+    public void setCarbsTime(String[] carbsTime) {
+        this.carbsTime = carbsTime;
     }
 
-    public LongActingInsulin getLongInsulin() {
-        return longInsulin;
+    public double[] getFastActingDosage() {
+        return fastActingDosage;
     }
 
-    public void setLongInsulin(LongActingInsulin longInsulin) {
-        this.longInsulin = longInsulin;
+    public void setFastActingDosage(double[] fastActingDosage) {
+        this.fastActingDosage = fastActingDosage;
     }
 
-    public Exercise getWorkouts() {
-        return workouts;
+    public String[] getFastActingTime() {
+        return fastActingTime;
     }
 
-    public void setWorkouts(Exercise workouts) {
-        this.workouts = workouts;
+    public void setFastActingTime(String[] fastActingTime) {
+        this.fastActingTime = fastActingTime;
     }
 
-    public void arrayListToArray(ArrayList<Integer> gl, ArrayList<String> glTime, ArrayList<Integer> carb, ArrayList<String>  carbTime, ArrayList<Double> fADosage, ArrayList<String> fATime, ArrayList<Double> lADosage, ArrayList<String> lATime, ArrayList<String> exStartTimes, ArrayList<String>  exDuration){
+    public double[] getLongActingDosage() {
+        return longActingDosage;
+    }
 
+    public void setLongActingDosage(double[] longActingDosage) {
+        this.longActingDosage = longActingDosage;
+    }
+
+    public String[] getLongActingTime() {
+        return longActingTime;
+    }
+
+    public void setLongActingTime(String[] longActingTime) {
+        this.longActingTime = longActingTime;
+    }
+
+    public String[] getExerciseStartTimes() {
+        return exerciseStartTimes;
+    }
+
+    public void setExerciseStartTimes(String[] exerciseStartTimes) {
+        this.exerciseStartTimes = exerciseStartTimes;
+    }
+
+    public String[] getExerciseDuration() {
+        return exerciseDuration;
+    }
+
+    public void setExerciseDuration(String[] exerciseDuration) {
+        this.exerciseDuration = exerciseDuration;
     }
 }
