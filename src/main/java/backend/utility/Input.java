@@ -117,7 +117,7 @@ public class Input {
                     }
                     else if(list[i].substring(index, index + 5).equals("Carbs"))
                     {
-                        //TODO: Implement Carbs Writing
+
                         int carbsCommaCount = 0, carbsIndex = 0;
                         while(carbsCommaCount < 8)
                         {
@@ -173,6 +173,17 @@ public class Input {
                     else if(list[i].substring(index, index + 8).equals("Excersize"))
                     {
                         //TODO: Exercise
+                        int excersizeCommaCount = 0, excersizeIndex = 0;
+                        while(excersizeCommaCount < 2)
+                        {
+                            if(list[i].charAt(excersizeIndex) == ',')
+                            {
+                                excersizeCommaCount++;
+                            }
+                            excersizeIndex++;
+                        }
+
+
                     }
                 }
             }
