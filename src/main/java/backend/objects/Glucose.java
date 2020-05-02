@@ -2,7 +2,7 @@ package backend.objects;
 
 import backend.utility.Position;
 
-public class GlucoseLevels{
+public class Glucose {
 
     private int[][] glucoseArr = new int[][]{
             {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -31,7 +31,7 @@ public class GlucoseLevels{
     };
 
     //note: times and glucose MUST be parallel arrays
-    public GlucoseLevels(String[] times, int[] glucose){
+    public Glucose(String[] times, int[] glucose){
         Position p = new Position(0,0);
         int columnPos = 0;
         int rowPos = 0;

@@ -4,7 +4,9 @@ public class Day{
 
     private String[] day = new String[288];
     private String[][] time;
-    private double[][] insulin;
+    private double[][] fastActingInsulin;
+    private double[][]longActingInsulin;
+    private int[][] carbs;
     private int[][] glucose;
     //All inputs need to be sanitised for time, each array is assumed to be 288 long, or 2d 12x24
     public Day(String[][] t, double[][] insul, int[][] g){
