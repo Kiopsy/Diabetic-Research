@@ -45,8 +45,8 @@ public class Day{
         return glucose;
     }
 
-    public double[][] getCarbs() {
-        return insulin;
+    public int[][] getCarbs() {
+        return carbs;
     }
 
     public boolean[][] getExercise() {
