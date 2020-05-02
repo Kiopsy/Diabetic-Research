@@ -169,20 +169,22 @@ public class Input {
                             longActingTime.add(time);
                         }
                     }
-                    else if(list[i].substring(index, index + 8).equals("Excersize"))
+                    else if(list[i].substring(index, index + 8).equals("Execersize"))
                     {
-                        //TODO: Exercise
-                        int excersizeCommaCount = 0, excersizeIndex = 0;
-                        while(excersizeCommaCount < 2)
+                        int execersizeCommaCount = 0, execersizeIndex = 0;
+                        while(execersizeCommaCount < 2)
                         {
-                            if(list[i].charAt(excersizeIndex) == ',')
+                            if(list[i].charAt(execersizeIndex) == ',')
                             {
-                                excersizeCommaCount++;
+                                execersizeCommaCount++;
                             }
-                            excersizeIndex++;
+                            execersizeIndex++;
                         }
 
+                        String execersizeLength = list[i].substring(execersizeIndex, execersizeIndex + 5);
 
+                        exerciseDuration.add(execersizeLength);
+                        exerciseStartTimes.add(time);
                     }
                 }
             }
