@@ -127,7 +127,10 @@ public class Input {
                             carbsIndex++;
                         }
 
-                        Integer carbs = Integer.valueOf(list[i].substring(carbsIndex));
+                        Integer carbsLevel = Integer.valueOf(list[i].substring(carbsIndex));
+
+                        carbs.add(carbsLevel);
+                        carbsTime.add(time);
 
                     }
                     else if(list[i].substring(index, index + 7).equals("Insulin"))
