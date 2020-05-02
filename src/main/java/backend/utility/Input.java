@@ -111,7 +111,8 @@ public class Input {
                         Integer glucoseLevel = Integer.valueOf(list[i].substring(glucoseIndex, glucoseIndexPlusOne));
 
                         //Writes glucose
-                        glucose.writeGlucose(writeTo, glucoseLevel);
+                        glucose.add(glucoseLevel);
+                        glucoseTime.add(time);
 
                     }
                     else if(list[i].substring(index, index + 5).equals("Carbs"))
@@ -157,11 +158,13 @@ public class Input {
 
                         if(list[i].substring(InsulinIndex, InsulinIndex + 1).equals("F"))
                         {
-                            fastInsulin.updateInjections(writeTo, injection);
+                            fastActingDosage.add(injection);
+                            fastActingTime.add(time);
                         }
                         else
                         {
-                            longInsulin.updateInjections(writeTo, injection);
+                            longActingDosage.add(injection);
+                            longActingTime.add(time);
                         }
                     }
                     else if(list[i].substring(index, index + 8).equals("Excersize"))
