@@ -17,7 +17,7 @@ public class main {
         //contains all parts from the input CSV
         ObjectTransfer readCSV = Input.parseCSV(fileAddress);
 
-        //takes arrays from readCSV to create all parts of the Day object
+        //takes arrays from readCSV to create a Day object
         Glucose g = new Glucose(readCSV.getGlucoseTime(), readCSV.getGlucose());
         Carbs c = new Carbs(readCSV.getCarbsTime(),readCSV.getCarbs());
         Exercise e = new Exercise(readCSV.getExerciseStartTimes(), readCSV.getExerciseDuration());
