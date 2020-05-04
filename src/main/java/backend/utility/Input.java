@@ -169,21 +169,21 @@ public class Input {
                             longActingTime.add(time);
                         }
                     }
-                    else if(list[i].substring(index, index + 8).equals("Exercize"))
+                    else if(list[i].substring(index, index + 8).equals("Exercise"))
                     {
-                        int exercizeCommaCount = 0, exercizeIndex = 0;
-                        while(exercizeCommaCount < 2)
+                        int exerciseCommaCount = 0, exerciseIndex = 0;
+                        while(exerciseCommaCount < 2)
                         {
-                            if(list[i].charAt(exercizeIndex) == ',')
+                            if(list[i].charAt(exerciseIndex) == ',')
                             {
-                                exercizeCommaCount++;
+                                exerciseCommaCount++;
                             }
-                            exercizeIndex++;
+                            exerciseIndex++;
                         }
 
-                        String exercizeLength = list[i].substring(exercizeIndex, exercizeIndex + 5);
+                        String exerciseLength = list[i].substring(exerciseIndex, exerciseIndex + 5);
 
-                        exerciseDuration.add(exercizeLength);
+                        exerciseDuration.add(exerciseLength);
                         exerciseStartTimes.add(time);
                     }
                 }
