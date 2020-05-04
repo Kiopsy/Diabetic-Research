@@ -171,19 +171,19 @@ public class Input {
                     }
                     else if(list[i].substring(index, index + 8).equals("Execersize"))
                     {
-                        int execersizeCommaCount = 0, execersizeIndex = 0;
-                        while(execersizeCommaCount < 2)
+                        int exercizeCommaCount = 0, exercizeIndex = 0;
+                        while(exercizeCommaCount < 2)
                         {
-                            if(list[i].charAt(execersizeIndex) == ',')
+                            if(list[i].charAt(exercizeIndex) == ',')
                             {
-                                execersizeCommaCount++;
+                                exercizeCommaCount++;
                             }
-                            execersizeIndex++;
+                            exercizeIndex++;
                         }
 
-                        String execersizeLength = list[i].substring(execersizeIndex, execersizeIndex + 5);
+                        String exercizeLength = list[i].substring(exercizeIndex, exercizeIndex + 5);
 
-                        exerciseDuration.add(execersizeLength);
+                        exerciseDuration.add(exercizeLength);
                         exerciseStartTimes.add(time);
                     }
                 }
