@@ -169,7 +169,7 @@ public class Input {
                             longActingTime.add(time);
                         }
                     }
-                    else if(list[i].substring(index, index + 8).equals("Execersize"))
+                    else if(list[i].substring(index, index + 8).equals("Exercize"))
                     {
                         int exercizeCommaCount = 0, exercizeIndex = 0;
                         while(exercizeCommaCount < 2)
