@@ -9,18 +9,18 @@ import java.util.List;
 
 public class Input {
 
-    private ArrayList<Integer> glucose = new ArrayList<Integer>();
-    private ArrayList<String> glucoseTime = new ArrayList<String>();
-    private ArrayList<Integer> carbs = new ArrayList<Integer>();
-    private ArrayList<String>  carbsTime = new ArrayList<String>();
-    private ArrayList<Double> fastActingDosage = new ArrayList<Double>();
-    private ArrayList<String> fastActingTime = new ArrayList<String>();
-    private ArrayList<Double> longActingDosage = new ArrayList<Double>();
-    private ArrayList<String> longActingTime = new ArrayList<String>();
-    private ArrayList<String> exerciseStartTimes = new ArrayList<String>();
-    private ArrayList<String>  exerciseDuration  = new ArrayList<String>();
+    private static ArrayList<Integer> glucose = new ArrayList<Integer>();
+    private static ArrayList<String> glucoseTime = new ArrayList<String>();
+    private static ArrayList<Integer> carbs = new ArrayList<Integer>();
+    private static ArrayList<String>  carbsTime = new ArrayList<String>();
+    private static ArrayList<Double> fastActingDosage = new ArrayList<Double>();
+    private static ArrayList<String> fastActingTime = new ArrayList<String>();
+    private static ArrayList<Double> longActingDosage = new ArrayList<Double>();
+    private static ArrayList<String> longActingTime = new ArrayList<String>();
+    private static ArrayList<String> exerciseStartTimes = new ArrayList<String>();
+    private static ArrayList<String>  exerciseDuration  = new ArrayList<String>();
 
-    public ObjectTransfer parseCSV(String fileName)
+    public static ObjectTransfer parseCSV(String fileName)
     {
         CSVReader parser;
         try {
