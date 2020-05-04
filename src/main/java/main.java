@@ -1,4 +1,4 @@
-import backend.objects.ObjectTransfer;
+import backend.objects.*;
 import backend.utility.Input;
 import gui.initialGUI;
 
@@ -14,8 +14,17 @@ public class main {
         String fileAddress = program.GUI();
         System.out.println(fileAddress);
 
+        //contains all parts from the input CSV
         ObjectTransfer readCSV = Input.parseCSV(fileAddress);
 
+        //takes arrays from readCSV to create all parts of the Day object
+        Glucose g = new Glucose(readCSV.getGlucoseTime(), readCSV.getGlucose());
+        Carbs c = new Carbs(readCSV.getCarbsTime(),readCSV.getCarbs());
+        Exercise e = new Exercise(readCSV.getExerciseStartTimes(), readCSV.getExerciseDuration());
+        FastActingInsulin fa = new FastActingInsulin(readCSV.getFastActingTime(), readCSV.getFastActingDosage());
+        LongActingInsulin la = new LongActingInsulin(readCSV.getLongActingTime(), readCSV.getLongActingDosage());
+
+        Day day = new Day(g.getGlucoseArr(), c.getCarbsArr(), e.getExerciseArr(), fa.getInjectionsArr(), la.getInjectionsArr());
         program.closeGUI();
 
 
