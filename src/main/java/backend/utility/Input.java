@@ -67,7 +67,7 @@ public class Input {
                         timeRound = ((timeRound / 10) + 1) * 10;
                         if(timeRound == 60)
                         {
-                            time = (Integer.valueOf(time.substring(0, 2)) + 1) + ":00";
+                            time = (Integer.parseInt(time.substring(0, 2)) + 1) + ":00";
                         }
                         else
                         {
@@ -81,7 +81,7 @@ public class Input {
                     }
 
                     //Gets position for writing to
-                    Position writeTo = Time.positionAt(time);
+                    Position writeTo = Time.positionAt(list[i].substring(timeStampIndex, timeStampIndex + 10) + "_" + time);
 
                     //This overarching If/Else loop checks for the type of event
                     if(list[i].substring(index, index + 3).equals("EGV"))
