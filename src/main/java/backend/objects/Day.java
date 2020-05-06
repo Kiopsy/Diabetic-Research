@@ -2,7 +2,7 @@ package backend.objects;
 
 public class Day{
 
-    private String[] day = new String[288];
+    private String[] day = new String[289];
     private String[][] time;
     private int[][] glucose;
     private int[][] carbs;
@@ -11,7 +11,7 @@ public class Day{
     private double[][]longActingInsulin;
 
     //All inputs need to be sanitised for time, each array is assumed to be 288 long, or 2d 12x24
-    public Day(int[][] glucose, int[][] carbs, boolean[][] exercise, double[][] fastActingInsulin, double[][] longActingInsulin){
+    public Day(int[][] glucose, int[][] carbs, boolean[][] exercise, double[][] fastActingInsulin, double[][] longActingInsulin, String date){
         //Array of each row in the final file
         // //Cell format: time_24hr-glucose_level-carbs_intake-whether_exercising-fastActingInsulin_intake-longActingInsulin_intake
         //Example cell: 20:30-123-20-false-0-23 (represents 123 mg/deciliter of glucose in blood at 8:30pm, 20 grams of carbs eaten, no exercise at given time, no fast acting insulin, and 23u of long acting insulin)
@@ -22,7 +22,9 @@ public class Day{
         this.fastActingInsulin = fastActingInsulin;
         this.longActingInsulin = longActingInsulin;
 
-        for(int i = 0; i < 288; i++)
+        day[0] = date;
+
+        for(int i = 1; i < 289; i++)
         {
             int x = i / 24;
             int y = i % 24;
