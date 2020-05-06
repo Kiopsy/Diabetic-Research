@@ -30,15 +30,16 @@ public class Day{
         }
     }
 
-    @Override
-    public String toString() {
-        String line = "";
-        for(int i = 0; i < day.length - 1; i++)
-        {
-            line += day[i].toString() + ",";
+    public String[] dayToString() {
+        String[] lines = new String[24];
+        int count = 0;
+        for(int i = 0; i<24; i++) {
+            for (int k = 0; k < 12; k++) {
+                lines[i] += day[k + count] + ",";
+                count++;
+            }
         }
-        line += day[day.length - 1];
-        return line;
+        return lines;
     }
 
     public int[][] getGlucose() {

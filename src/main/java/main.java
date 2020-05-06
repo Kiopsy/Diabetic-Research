@@ -26,8 +26,6 @@ public class main {
         FastActingInsulin fa = new FastActingInsulin(readCSV.getFastActingTime(), readCSV.getFastActingDosage());
         LongActingInsulin la = new LongActingInsulin(readCSV.getLongActingTime(), readCSV.getLongActingDosage());
 
-
-
         Day day = new Day(g.getGlucoseArr(), c.getCarbsArr(), e.getExerciseArr(), fa.getInjectionsArr(), la.getInjectionsArr());
 
         program.closeGUI();
