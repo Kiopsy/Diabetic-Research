@@ -3,6 +3,7 @@ package backend.objects;
 public class Day{
 
     private String[] day = new String[289];
+    private String date;
     private String[][] time;
     private int[][] glucose;
     private int[][] carbs;
@@ -21,14 +22,14 @@ public class Day{
         this.exercise = exercise;
         this.fastActingInsulin = fastActingInsulin;
         this.longActingInsulin = longActingInsulin;
-
+        this.date = date;
         day[0] = date;
 
-        for(int i = 1; i < 289; i++)
+        for(int i = 0; i < 288; i++)
         {
             int x = i / 24;
             int y = i % 24;
-            day[i] = time[x][y] + "-" + glucose[x][y] + "-" + carbs[x][y] + "-" + exercise[x][y] + "-" + fastActingInsulin[x][y] + "-" + longActingInsulin[x][y];
+            day[i + 1] = time[x][y] + "-" + glucose[x][y] + "-" + carbs[x][y] + "-" + exercise[x][y] + "-" + fastActingInsulin[x][y] + "-" + longActingInsulin[x][y];
         }
     }
 
