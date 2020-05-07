@@ -3,6 +3,7 @@ package backend.objects;
 public class Day{
 
     private String[] day = new String[289];
+    //Format: YYY-MM-DD
     private String date;
     private String[][] time;
     private int[][] glucose;
@@ -67,6 +68,14 @@ public class Day{
 
     public String[] getDay(){
         return day;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 
 }
