@@ -35,9 +35,10 @@ public class Day{
     }
 
     public String[] dayToString() {
-        String[] lines = new String[24];
-        int count = 0;
-        for(int i = 0; i<24; i++) {
+        String[] lines = new String[25];
+        lines[0] = day[0];
+        int count = 1;
+        for(int i = 1; i<25; i++) {
             for (int k = 0; k < 12; k++) {
                 lines[i] += day[k + count] + ",";
                 count++;
@@ -74,8 +75,16 @@ public class Day{
         return date;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public int getMonth(){
+        String[] dateContents = date.split("-");
+        int month = Integer.parseInt(dateContents[1]);
+        return month;
     }
+
+    public String getYear(){
+        String[] dateContents = date.split("-");
+        return dateContents[0];
+    }
+
 
 }
