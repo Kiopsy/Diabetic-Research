@@ -38,8 +38,9 @@ public class splitObjects {
             if(!currentDate.equals(previousDate))
             {
                 dayCount++;
+                dayList.add(currentDate);
             }
-            dayList.add(currentDate);
+
             previousDate = currentDate;
         }
         ArrayList<Day> returnObject = new ArrayList<Day>(dayCount);
