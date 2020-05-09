@@ -3,7 +3,9 @@ package backend.utility;
 import backend.objects.Day;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Output {
@@ -13,11 +15,24 @@ public class Output {
     };
 
     public static void outputWriter(ArrayList<Day> days){
-        FileWriter csvWriter = new FileWriter("Users\\brasi\\Desktop\\Research Storage\\" + ".csv");
-        csvWriter.write("");
+
+        FileWriter csvWriter;
+        File fileName;
         for(int i = 0; i < days.size(); i++){
+            fileName = new File("Users\\brasi\\Desktop\\Research Storage\\" + monthArr[days.get(i).getMonth()] + days.get(i).getYear() + ".csv");
+            if(!fileName.exists()){
+                csvWriter = new FileWriter(fileName);
+                //csvWriter.write("Index, Glucose Value (mg/dL), Carb Value (grams) , Exercs, fastActingInsulin, longActingInsulin, date");
+                csvWriter.append("dd");
+            }
+            else{
+                if(){
 
+                }
+                else{
 
+                }
+            }
         }
     }
 
