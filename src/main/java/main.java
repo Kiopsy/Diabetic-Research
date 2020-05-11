@@ -11,9 +11,12 @@ public class main {
 	    //Loads initialGUI
         //Grabs the .CSV target file (targetCSV) to write to from initialGUI
         initialGUI program = new initialGUI();
-        String fileAddress = program.GUI();
+        String[] output = program.GUI();
+        String fileAddress = output[0];
         System.out.println(fileAddress);
 
+        String fileDirectory = output[1];
+        System.out.println(fileDirectory);
         //contains all parts from the input CSV (ex: 30 days worth of values specific to each array)
         ObjectTransfer readCSV = Input.parseCSV(fileAddress);
 

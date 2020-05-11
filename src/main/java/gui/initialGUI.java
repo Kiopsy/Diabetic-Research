@@ -22,7 +22,9 @@ public class initialGUI extends JFrame{
         frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
     }
 
-    public String GUI() {
+    public String[] GUI() {
+
+        String[] output = new String[2];
 
         GridBagConstraints c = new GridBagConstraints();
         JPanel screen = new JPanel(new GridBagLayout());
@@ -33,19 +35,24 @@ public class initialGUI extends JFrame{
         frame.setLocationRelativeTo(null);
 
         JButton update = new JButton("Update");
-        JButton select = new JButton("Select File");
+        JButton selectFile = new JButton("Select File");
         JTextField fileAddress = new JTextField("Enter file address here:", 20);
-        JLabel title = new JLabel("Import Target CSV");
+        JLabel importTitle = new JLabel("Import Target CSV");
+        JButton selectDirectory = new JButton("Select Directory");
+        JTextField fileDirectory = new JTextField("Enter output directory here:", 20);
+        JLabel outputTitle = new JLabel("Select Output Directory");
         JLabel s1 = new JLabel(" ");
         JLabel s2 = new JLabel(" ");
+        JLabel s3 = new JLabel(" ");
+        JLabel s4 = new JLabel(" ");
 
 
-        title.setFont(new Font("TimesRoman", Font.BOLD, 18));
+        importTitle.setFont(new Font("TimesRoman", Font.BOLD, 18));
 
         c.gridwidth = 4;
         c.gridx = 1;
         c.gridy = 3;
-        screen.add(title, c);
+        screen.add(importTitle, c);
 
         c.gridwidth = 4;
         c.gridx = 1;
@@ -60,23 +67,51 @@ public class initialGUI extends JFrame{
         c.gridwidth = 1;
         c.gridx = 4;
         c.gridy = 5;
-        screen.add(select, c);
+        screen.add(selectFile, c);
 
         c.gridwidth = 4;
         c.gridx = 1;
         c.gridy = 6;
         screen.add(s2, c);
 
+        outputTitle.setFont(new Font("TimesRoman", Font.BOLD, 18));
+
+
         c.gridwidth = 4;
         c.gridx = 1;
         c.gridy = 7;
+        screen.add(outputTitle, c);
+
+        c.gridwidth = 4;
+        c.gridx = 1;
+        c.gridy = 8;
+        screen.add(s3, c);
+
+        c.gridwidth = 3;
+        c.gridx = 1;
+        c.gridy = 9;
+        screen.add(fileDirectory, c);
+
+        c.gridwidth = 1;
+        c.gridx = 4;
+        c.gridy = 9;
+        screen.add(selectDirectory, c);
+
+        c.gridwidth = 4;
+        c.gridx = 1;
+        c.gridy = 10;
+        screen.add(s4, c);
+
+        c.gridwidth = 4;
+        c.gridx = 1;
+        c.gridy = 11;
         screen.add(update, c);
 
         add(screen);
         frame.getContentPane().add(screen);
         frame.setVisible(true);
 
-        select.addActionListener(new ActionListener() {
+        selectFile.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -87,6 +122,21 @@ public class initialGUI extends JFrame{
                 if (returnValue == JFileChooser.APPROVE_OPTION) {
                     File selectedFile = fileChooser.getSelectedFile();
                     fileAddress.setText(selectedFile.getAbsolutePath());
+                }
+            }
+        });
+        selectDirectory.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFileChooser fileChooser = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
+                fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+
+                int returnValue = fileChooser.showOpenDialog(null);
+
+                if (returnValue == JFileChooser.APPROVE_OPTION) {
+                    File selectedFile = fileChooser.getSelectedFile();
+                    fileDirectory.setText(selectedFile.getAbsolutePath());
                 }
             }
         });
@@ -101,8 +151,9 @@ public class initialGUI extends JFrame{
             });
 
         }
-
-        return fileAddress.getText();
+        output[0] = fileAddress.getText();
+        output[1] = fileDirectory.getText();
+        return output;
     }
 
 

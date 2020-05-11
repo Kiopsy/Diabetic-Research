@@ -2,7 +2,7 @@ package backend.objects;
 
 public class Day{
 
-    private String[] day = new String[289];
+    private String[] day = new String[288];
     //Format: YYY-MM-DD
     private String date;
     private String[][] time;
@@ -24,23 +24,25 @@ public class Day{
         this.fastActingInsulin = fastActingInsulin;
         this.longActingInsulin = longActingInsulin;
         this.date = date;
-        day[0] = date;
 
         for(int i = 0; i < 288; i++)
         {
             int x = i / 24;
             int y = i % 24;
-            day[i + 1] = time[x][y] + "-" + glucose[x][y] + "-" + carbs[x][y] + "-" + exercise[x][y] + "-" + fastActingInsulin[x][y] + "-" + longActingInsulin[x][y];
+            day[i] = time[x][y] + "-" + glucose[x][y] + "-" + carbs[x][y] + "-" + exercise[x][y] + "-" + fastActingInsulin[x][y] + "-" + longActingInsulin[x][y];
         }
     }
 
     public String[] dayToString() {
-        String[] lines = new String[25];
-        lines[0] = day[0];
-        int count = 1;
-        for(int i = 1; i<25; i++) {
+        String[] lines = new String[24];
+        int count = 0;
+        for(int i = 0; i<24; i++) {
+            lines[i] += date;
             for (int k = 0; k < 12; k++) {
-                lines[i] += day[k + count] + ",";
+                lines[i] += day[k + count];
+                if(k!=12){
+                    lines[i] = ",";
+                }
                 count++;
             }
         }
@@ -97,8 +99,7 @@ public class Day{
     }
 
     /*
-    00:00,00:05,00:10,00:15,etc....
-    date
+    date,00:00,00:05,00:10,00:15,etc....
     (interval),(interval),(interval),(interval),etc....
      */
 
