@@ -85,6 +85,17 @@ public class Day{
         String[] dateContents = date.split("-");
         return dateContents[0];
     }
+
+    public void setGlucose(int[] glucose){
+        for(int i = 0; i < 24; i++)
+        {
+            for(int o = 0; o < 12; o++)
+            {
+                this.glucose[i][o] = glucose[(24 * i) + o];
+            }
+        }
+    }
+
     /*
     00:00,00:05,00:10,00:15,etc....
     date

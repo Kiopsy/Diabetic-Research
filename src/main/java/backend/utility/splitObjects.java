@@ -45,6 +45,15 @@ public class splitObjects {
         }
         ArrayList<Day> returnObject = new ArrayList<Day>(dayCount);
 
+        int iterationCount = 0;
+        int[][] glucoseSplit = new int[dayCount][288];
+        while(iterationCount < dayCount)
+        {
+            
+        }
+
+
+
         //Create day array to match
         //Split Glucose into days
         //Repeat process for every other type
