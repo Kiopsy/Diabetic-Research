@@ -85,6 +85,10 @@ public class Day{
         String[] dateContents = date.split("-");
         return dateContents[0];
     }
-
+    /*
+    00:00,00:05,00:10,00:15,etc....
+    date
+    (interval),(interval),(interval),(interval),etc....
+     */
 
 }
