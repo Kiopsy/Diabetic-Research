@@ -18,17 +18,18 @@ public class main {
         String fileDirectory = output[1];
         System.out.println(fileDirectory);
         //contains all parts from the input CSV (ex: 30 days worth of values specific to each array)
+        // .parseCSV does not work
         ObjectTransfer readCSV = Input.parseCSV(fileAddress);
 
 
 
         //takes arrays from readCSV to create a Day object
+
         Glucose g = new Glucose(readCSV.getGlucoseTime(), readCSV.getGlucose());
         Carbs c = new Carbs(readCSV.getCarbsTime(),readCSV.getCarbs());
         Exercise e = new Exercise(readCSV.getExerciseStartTimes(), readCSV.getExerciseDuration());
         FastActingInsulin fa = new FastActingInsulin(readCSV.getFastActingTime(), readCSV.getFastActingDosage());
         LongActingInsulin la = new LongActingInsulin(readCSV.getLongActingTime(), readCSV.getLongActingDosage());
-
 
         program.closeGUI();
 
