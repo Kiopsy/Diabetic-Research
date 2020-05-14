@@ -27,49 +27,20 @@ public class Input {
 
             parser = new CSVReader(new FileReader(fileName));
             List<String[]> allRows = parser.readAll();
-            //Possible Error Point
-            //Line below does NOT work
-            String[] list = allRows.toArray(new String[0]);
-            //This is how to properly instantiate the String[][] list
-            /*
+
             String[][] list = new String[allRows.size()][];
             for(int k = 0; k< allRows.size(); k++)
             {
                 list[k] = allRows.get(k);
             }
-            */
 
             for(int i = 0; i < list.length; i++)
             {
                 if(i > 10)
                 {
-                    //CSV Format: Index, Date:Time, Alert Type,
-
-                    //This finds the index of the event identifier
-                    int commaCount = 0, index = 0;
-                    while(commaCount < 2)
-                    {
-                        if(list[i].charAt(index) == ',')
-                        {
-                            commaCount++;
-                        }
-                        index++;
-                    }
-
-                    //This finds the index of the timestamp and date
-                    int timeStampCommaCount = 0, timeStampIndex = 0;
-                    while(timeStampCommaCount < 2)
-                    {
-                        if(list[i].charAt(timeStampIndex) == ',')
-                        {
-                            timeStampCommaCount++;
-                        }
-                        timeStampIndex++;
-                    }
-
-                    String time = list[i].substring(timeStampIndex + 11, timeStampIndex + 16);
-                    System.out.println(time);
+                    String time = list[i][1];
                     //Round time to nearest
+                    //TODO: Redo this function to account for full time cell
                     Integer timeRound = Integer.valueOf(time.substring(3));
                     if((timeRound / 5) % 2 == 1)
                     {
@@ -90,84 +61,36 @@ public class Input {
                     }
 
                     //Gets position for writing to
+                    //TODO: Also rewrite this to account for new changes
                     Position writeTo = Time.positionAt(list[i].substring(timeStampIndex, timeStampIndex + 10) + "_" + time);
 
                     //This overarching If/Else loop checks for the type of event
-                    if(list[i].substring(index, index + 3).equals("EGV"))
+                    if(list[i][2].equals("EGV"))
                     {
-                        int glucoseCommaCount = 0, glucoseIndex = 0;
-                        while(glucoseCommaCount < 11)
-                        {
-                            if(list[i].charAt(glucoseIndex) == ',')
-                            {
-                                glucoseCommaCount++;
-                            }
-                            glucoseIndex++;
-                        }
-
-                        int glucoseCommaCountPlusOne = 0, glucoseIndexPlusOne = 0;
-                        while(glucoseCommaCount < 12)
-                        {
-                            if(list[i].charAt(glucoseIndexPlusOne) == ',')
-                            {
-                                glucoseCommaCountPlusOne++;
-                            }
-                            glucoseIndexPlusOne++;
-                        }
 
                         //Find the length of the Glucose Index
-                        Integer glucoseLevel = Integer.valueOf(list[i].substring(glucoseIndex, glucoseIndexPlusOne));
+                        Integer glucoseLevel = Integer.valueOf(list[i][7];
 
                         //Writes glucose
                         glucose.add(glucoseLevel);
                         glucoseTime.add(time);
 
                     }
-                    else if(list[i].substring(index, index + 5).equals("Carbs"))
+                    else if(list[i][2].equals("Carbs"))
                     {
 
-                        int carbsCommaCount = 0, carbsIndex = 0;
-                        while(carbsCommaCount < 8)
-                        {
-                            if(list[i].charAt(carbsIndex) == ',')
-                            {
-                                carbsCommaCount++;
-                            }
-                            carbsIndex++;
-                        }
-
-                        Integer carbsLevel = Integer.valueOf(list[i].substring(carbsIndex));
+                        Integer carbsLevel = (int) Double.parseDouble(list[i][8]);
 
                         carbs.add(carbsLevel);
                         carbsTime.add(time);
 
                     }
-                    else if(list[i].substring(index, index + 7).equals("Insulin"))
+                    else if(list[i][2].equals("Insulin"))
                     {
-                        int InsulinCommaCount = 0, InsulinIndex = 0;
-                        while(InsulinCommaCount < 3)
-                        {
-                            if(list[i].charAt(InsulinIndex) == ',')
-                            {
-                                InsulinCommaCount++;
-                            }
-                            InsulinIndex++;
-                        }
 
-                        int InsulinLevelCommaCount = 0, InsulinLevelIndex = 0, InsulinLevelIndexPlusOne = 0;
-                        while(InsulinLevelCommaCount < 9)
-                        {
-                            if(list[i].charAt(InsulinLevelIndex) == ',' && InsulinLevelCommaCount < 8)
-                            {
-                                InsulinLevelCommaCount++;
-                            }
-                            InsulinLevelIndex++;
-                            InsulinLevelIndexPlusOne++;
-                        }
+                        double injection = Double.valueOf(list[i][8]);
 
-                        double injection = Double.valueOf(list[i].substring(InsulinLevelIndex, InsulinLevelIndexPlusOne - 1));
-
-                        if(list[i].substring(InsulinIndex, InsulinIndex + 1).equals("F"))
+                        if(list[i][3].substring(0, 1).equals("F"))
                         {
                             fastActingDosage.add(injection);
                             fastActingTime.add(time);
@@ -178,19 +101,10 @@ public class Input {
                             longActingTime.add(time);
                         }
                     }
-                    else if(list[i].substring(index, index + 8).equals("Exercise"))
+                    else if(list[i][2].equals("Exercise"))
                     {
-                        int exerciseCommaCount = 0, exerciseIndex = 0;
-                        while(exerciseCommaCount < 2)
-                        {
-                            if(list[i].charAt(exerciseIndex) == ',')
-                            {
-                                exerciseCommaCount++;
-                            }
-                            exerciseIndex++;
-                        }
 
-                        String exerciseLength = list[i].substring(exerciseIndex, exerciseIndex + 5);
+                        String exerciseLength = list[i][9];
 
                         exerciseDuration.add(exerciseLength);
                         exerciseStartTimes.add(time);
