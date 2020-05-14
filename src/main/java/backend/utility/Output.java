@@ -5,9 +5,11 @@ import backend.objects.Day;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Output {
 
@@ -19,8 +21,11 @@ public class Output {
 
         FileWriter csvWriter;
         File fileName;
+        CSVReader parser;
+
         for(int i = 0; i < days.size(); i++){
             fileName = new File(directory + "\\" + monthArr[days.get(i).getMonth()] + days.get(i).getYear() + ".csv");
+
             String[] lines = days.get(i).dayToString();
             try {
                 if(!fileName.exists()){
@@ -34,6 +39,13 @@ public class Output {
 
                 }
                 else{
+                    parser = new CSVReader(new FileReader(fileName));
+                    List<String[]> allRows = parser.readAll();
+                    String[][] list = new String[allRows.size()][];
+                    for(int k = 0; k< allRows.size(); k++)
+                    {
+                        list[k] = allRows.get(k);
+                    }
                     if(true){
 
                     }

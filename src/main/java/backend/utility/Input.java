@@ -28,7 +28,16 @@ public class Input {
             parser = new CSVReader(new FileReader(fileName));
             List<String[]> allRows = parser.readAll();
             //Possible Error Point
+            //Line below does NOT work
             String[] list = allRows.toArray(new String[0]);
+            //This is how to properly instantiate the String[][] list
+            /*
+            String[][] list = new String[allRows.size()][];
+            for(int k = 0; k< allRows.size(); k++)
+            {
+                list[k] = allRows.get(k);
+            }
+            */
 
             for(int i = 0; i < list.length; i++)
             {
