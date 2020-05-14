@@ -28,7 +28,7 @@ public class Input {
             parser = new CSVReader(new FileReader(fileName));
             List<String[]> allRows = parser.readAll();
             //Possible Error Point
-            String[] list = (String[]) allRows.toArray();
+            String[] list = allRows.toArray(new String[0]);
 
             for(int i = 0; i < list.length; i++)
             {
