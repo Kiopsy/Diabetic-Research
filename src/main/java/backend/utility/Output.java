@@ -36,7 +36,6 @@ public class Output {
                     for(int k = 0; k<24; k++){
                         csvWriter.append(lines[k] + "n/");
                     }
-
                 }
                 else{
                     parser = new CSVReader(new FileReader(fileName));
@@ -46,11 +45,18 @@ public class Output {
                     {
                         list[k] = allRows.get(k);
                     }
-                    if(true){
+                    if(list.length > ((days.get(i).getNumDay()*24) + 1)){
 
                     }
                     else{
-
+                        csvWriter = new FileWriter(fileName);
+                        String[] currentCSV = ArrayConversion.arrayConversion(list);
+                        for(int j = 0; i<list.length; i++){
+                                csvWriter.append(currentCSV[j]);
+                        }
+                        for(int k = 0; k<24; k++){
+                            csvWriter.append(lines[k] + "n/");
+                        }
                     }
                 }
             } catch (IOException e) {

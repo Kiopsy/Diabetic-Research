@@ -29,7 +29,7 @@ public class Day{
         {
             int x = i / 24;
             int y = i % 24;
-            day[i] = time[x][y] + "-" + glucose[x][y] + "-" + carbs[x][y] + "-" + exercise[x][y] + "-" + fastActingInsulin[x][y] + "-" + longActingInsulin[x][y];
+            day[i] = date + "-" + time[x][y] + "-" + glucose[x][y] + "-" + carbs[x][y] + "-" + exercise[x][y] + "-" + fastActingInsulin[x][y] + "-" + longActingInsulin[x][y];
         }
     }
 
@@ -37,7 +37,6 @@ public class Day{
         String[] lines = new String[24];
         int count = 0;
         for(int i = 0; i<24; i++) {
-            lines[i] += date;
             for (int k = 0; k < 12; k++) {
                 lines[i] += day[k + count];
                 if(k!=12){
@@ -81,6 +80,12 @@ public class Day{
         String[] dateContents = date.split("-");
         int month = Integer.parseInt(dateContents[1]);
         return month;
+    }
+
+    public int getNumDay(){
+        String[] dateContents = date.split("-");
+        int numDate = Integer.parseInt(dateContents[2]);
+        return numDate;
     }
 
     public String getYear(){
