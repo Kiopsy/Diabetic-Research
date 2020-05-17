@@ -62,14 +62,14 @@ public class Input {
 
                     //Gets position for writing to
                     //TODO: Also rewrite this to account for new changes
-                    Position writeTo = Time.positionAt(list[i].substring(timeStampIndex, timeStampIndex + 10) + "_" + time);
+                    Position writeTo = Time.positionAt(list[i][1].substring(0, 10) + "_" + time);
 
                     //This overarching If/Else loop checks for the type of event
                     if(list[i][2].equals("EGV"))
                     {
 
                         //Find the length of the Glucose Index
-                        Integer glucoseLevel = Integer.valueOf(list[i][7];
+                        Integer glucoseLevel = Integer.valueOf(list[i][7]);
 
                         //Writes glucose
                         glucose.add(glucoseLevel);
