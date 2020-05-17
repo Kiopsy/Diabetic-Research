@@ -45,11 +45,11 @@ public class splitObjects {
         }
         ArrayList<Day> returnObject = new ArrayList<Day>(dayCount);
 
-        int iterationCount = 0;
+        int iterationCount = 0, prevIteration = 0, i = 0, o = 0;
         int[][] glucoseSplit = new int[dayCount][288];
         while(iterationCount < dayCount)
         {
-            
+
         }
 
 
