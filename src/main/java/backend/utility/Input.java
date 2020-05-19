@@ -40,7 +40,6 @@ public class Input {
                 {
                     String time = list[i][1];
                     //Round time to nearest
-                    //TODO: Redo this function to account for full time cell
                     Integer timeRound = Integer.valueOf(time.substring(3));
                     if((timeRound / 5) % 2 == 1)
                     {
@@ -61,7 +60,6 @@ public class Input {
                     }
 
                     //Gets position for writing to
-                    //TODO: Also rewrite this to account for new changes
                     Position writeTo = Time.positionAt(time);
                     time = list[i][1].substring(0, 10) + "_" + time;
 

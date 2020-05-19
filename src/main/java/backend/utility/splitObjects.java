@@ -2,6 +2,7 @@ package backend.utility;
 
 import backend.objects.Day;
 import backend.objects.ObjectTransfer;
+import backend.objects.Time;
 
 import java.util.ArrayList;
 
@@ -45,11 +46,19 @@ public class splitObjects {
         }
         ArrayList<Day> returnObject = new ArrayList<Day>(dayCount);
 
-        int iterationCount = 0, prevIteration = 0, i = 0, o = 0;
+        int iterationCount = 0, i = 0, o = 0;
         int[][] glucoseSplit = new int[dayCount][288];
         while(iterationCount < dayCount)
         {
+            o = Time.indexAt1DArr(glucoseTime[i]);
+            glucoseSplit[iterationCount][o] = glucose[i];
 
+            //TODO: Additional checks in case of connection loss at midnight
+            if(glucoseTime[i].equals("00:00") && i != 0)
+            {
+                iterationCount++;
+            }
+            i++;
         }
 
 
