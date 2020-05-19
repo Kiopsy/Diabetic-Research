@@ -8,6 +8,9 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,14 +25,17 @@ public class Output {
         FileWriter csvWriter;
         File fileName;
         CSVReader parser;
-
-        for(int i = 0; i < days.size(); i++){
-            fileName = new File(directory + "\\" + monthArr[days.get(i).getMonth()] + days.get(i).getYear() + ".csv");
+        Path path;
+        String fileAddress;
+        for(int i = 0; i < 1; i++){
+            fileAddress = directory + "\\" + monthArr[days.get(i).getMonth()] + days.get(i).getYear() + ".csv";
+            path = Paths.get(fileAddress);
 
             String[] lines = days.get(i).dayToString();
             try {
-                if(!fileName.exists()){
+                if(!Files.exists(path)){
                     //writes file
+                    fileName = new File(fileAddress);
                     csvWriter = new FileWriter(fileName);
                     csvWriter.write("Date,XX:05,XX:10,XX:15,XX:20,XX:25,XX:30,XX:35,XX:40,XX:45,XX:50,XX:55,XX:60");
                     //adds day to that file
@@ -37,6 +43,7 @@ public class Output {
                         csvWriter.append(lines[k] + "n/");
                     }
                 }
+
                 else{
                     parser = new CSVReader(new FileReader(fileName));
                     List<String[]> allRows = parser.readAll();
@@ -59,6 +66,7 @@ public class Output {
                         }
                     }
                 }
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
