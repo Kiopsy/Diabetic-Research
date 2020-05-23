@@ -12,7 +12,7 @@ public class Day{
     private double[][] fastActingInsulin;
     private double[][]longActingInsulin;
 
-    //All inputs need to be sanitised for time, each array is assumed to be 288 long, or 2d 12x24
+    //All inputs need to be sanitised for time, each array is assumed to be 288 long, or 2d 24x12
     public Day(int[][] glucose, int[][] carbs, boolean[][] exercise, double[][] fastActingInsulin, double[][] longActingInsulin, String date){
         //Array of each row in the final file
         // //Cell format: time_24hr-glucose_level-carbs_intake-whether_exercising-fastActingInsulin_intake-longActingInsulin_intake
@@ -25,11 +25,12 @@ public class Day{
         this.longActingInsulin = longActingInsulin;
         this.date = date;
 
-        for(int i = 0; i < 288; i++)
-        {
-            int x = i / 24;
-            int y = i % 24;
-            day[i] = date + "-" + time[x][y] + "-" + glucose[x][y] + "-" + carbs[x][y] + "-" + exercise[x][y] + "-" + fastActingInsulin[x][y] + "-" + longActingInsulin[x][y];
+        int count = 0;
+        for(int i = 0; i < 24; i++) {
+            for (int k = 0; k < 12; k++) {
+                day[count] = time[i][k] + "-" + glucose[i][k] + "-" + carbs[i][k] + "-" + exercise[i][k] + "-" + fastActingInsulin[i][k] + "-" + longActingInsulin[i][k];
+                count++;
+            }
         }
     }
 
@@ -37,10 +38,11 @@ public class Day{
         String[] lines = new String[24];
         int count = 0;
         for(int i = 0; i<24; i++) {
+            lines[i] = date + ",";
             for (int k = 0; k < 12; k++) {
-                lines[i] += day[k + count];
+                lines[i] += day[count];
                 if(k!=12){
-                    lines[i] = ",";
+                    lines[i] += ",";
                 }
                 count++;
             }

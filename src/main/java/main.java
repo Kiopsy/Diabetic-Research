@@ -1,6 +1,7 @@
 import backend.objects.*;
 //import backend.utility.Input;
 import backend.utility.Output;
+import backend.utility.Position;
 import gui.initialGUI;
 
 import javax.swing.*;
@@ -19,6 +20,7 @@ public class main {
 
         String fileDirectory = output[1];
         System.out.println(fileDirectory);
+
         //use time for glucoseTime,carbTime, exerciseStartTime, FATime, LAtime
         String[] time = new String[]{"12:45"};
         int[] glucose = new int[]{123};
@@ -26,21 +28,33 @@ public class main {
         double[] dosage = new double[]{19.0};
         String[] exerciseDuration = new String[]{"00:30:00"};
 
+
         Glucose g = new Glucose(time, glucose);
+        System.out.println("glucose complete");
         Carbs c = new Carbs(time, carb);
+        System.out.println("carbs complete");
         Exercise e = new Exercise(time, exerciseDuration);
+        System.out.println("exercise complete");
         FastActingInsulin fa = new FastActingInsulin(time, dosage);
+        System.out.println("fa complete");
         LongActingInsulin la = new LongActingInsulin(time, dosage);
+        System.out.println("la complete");
 
         String date = "2020-05-17";
         Day exampleDay = new Day(g.getGlucoseArr(), c.getCarbsArr(), e.getExerciseArr(), fa.getInjectionsArr(), la.getInjectionsArr(), date);
+
+        String[] text = exampleDay.dayToString();
+
+        for(int i = 0; i < text.length; i++){
+                System.out.println(text[i]);
+        }
 
         ArrayList<Day> example = new ArrayList<Day>();
         example.add(exampleDay);
 
         Output.outputWriter(example, fileDirectory);
 
-	    /*
+        /*
 	    //contains all parts from the input CSV (ex: 30 days worth of values specific to each array)
         // .parseCSV does not work
         ObjectTransfer readCSV = Input.parseCSV(fileAddress);
