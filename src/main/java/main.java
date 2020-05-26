@@ -42,7 +42,7 @@ public class main {
 
         String date = "2020-05-17";
         Day exampleDay = new Day(g.getGlucoseArr(), c.getCarbsArr(), e.getExerciseArr(), fa.getInjectionsArr(), la.getInjectionsArr(), date);
-        date = "2020-05-18";
+        date = "2020-05-19";
         Day exampleDay2 = new Day(g.getGlucoseArr(), c.getCarbsArr(), e.getExerciseArr(), fa.getInjectionsArr(), la.getInjectionsArr(), date);
 
         String[] text = exampleDay.dayToString();
@@ -53,7 +53,7 @@ public class main {
 
         ArrayList<Day> example = new ArrayList<Day>();
         example.add(exampleDay);
-        //example.add(exampleDay2);
+        example.add(exampleDay2);
         Output.outputWriter(example, fileDirectory);
 
         /*

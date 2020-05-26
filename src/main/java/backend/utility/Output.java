@@ -3,6 +3,7 @@ package backend.utility;
 import backend.objects.Day;
 
 import com.opencsv.CSVReader;
+import com.opencsv.CSVReaderBuilder;
 import com.opencsv.CSVWriter;
 
 import java.io.*;
@@ -24,42 +25,25 @@ public class Output {
         File fileName;
         CSVReader parser;
         String fileAddress;
-        int startDate;
-
-        String test;
+        ArrayList<String> datesWritten;
 
         for(int i = 0; i < days.size(); i++){
             fileAddress = directory + "\\" + monthArr[days.get(i).getMonth() - 1] + days.get(i).getYear() + ".csv";
             String[] lines = days.get(i).dayToString();
             try{
                 parser = new CSVReader(new FileReader(fileAddress));
-                List<String[]> allRows;
-                String[] list = null;
-                try {
-                    allRows = parser.readAll();
-                    list = new String[allRows.size()];
-                    list = ArrayConversion.arrayConversion(allRows);
-
-                } catch (IOException e) {
+                List<String[]> allRows = parser.readAll();;
+                datesWritten = ReaderHelp.ReaderHelp(allRows);
+                for(int a = 0; a<datesWritten.size(); a++) {
+                    System.out.println(datesWritten.get(a));
+                }
+                if(ReaderHelp.isDayWritten(datesWritten, days.get(i).getDate())){
 
                 }
-                //if(list.length > ((days.get(i).getNumDay()*24) + 1)){
-
-                //}
-                //else{
+                else{
                     try {
 
-                        String[] currentCSV = list;
-                        test = directory + "\\" + "test.csv";
-                        csvWriter = new FileWriter(new File(test));
-                        for(int j = 0; j<list.length; j++){
-                            csvWriter.append(currentCSV[j] + "\n");
-                        }
-
-                        csvWriter = new FileWriter(new File(fileAddress));
-                        for(int j = 0; j<list.length; j++){
-                            csvWriter.append(currentCSV[j] + "\n");
-                        }
+                        csvWriter = new FileWriter(fileAddress, true);
 
                         for(int k = 0; k<24; k++){
                             csvWriter.append(lines[k] + "\n");
@@ -69,7 +53,7 @@ public class Output {
                     } catch (IOException e) {
 
                     }
-                //}
+                }
             } catch (FileNotFoundException e) {
                 fileName = new File(fileAddress);
                 try{
@@ -84,6 +68,8 @@ public class Output {
                 } catch (IOException j) {
 
                 }
+
+            } catch (IOException e) {
 
             }
         }
