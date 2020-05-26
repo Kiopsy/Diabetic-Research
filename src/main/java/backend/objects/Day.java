@@ -41,7 +41,7 @@ public class Day{
             lines[i] = date + ",";
             for (int k = 0; k < 12; k++) {
                 lines[i] += day[count];
-                if(k!=12){
+                if(k!=11){
                     lines[i] += ",";
                 }
                 count++;
