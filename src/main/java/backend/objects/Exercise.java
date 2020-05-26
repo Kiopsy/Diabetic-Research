@@ -44,6 +44,11 @@ public class Exercise {
         }
     }
 
+    public void setExercisePeriod(String time, int duration)
+    {
+
+    }
+
     public boolean[][] getExerciseArr() {
         return exerciseArr;
     }

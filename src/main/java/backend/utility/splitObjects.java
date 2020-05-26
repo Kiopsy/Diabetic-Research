@@ -52,71 +52,95 @@ public class splitObjects {
         }
         ArrayList<Day> returnObject = new ArrayList<Day>(dayCount);
 
-        int iterationCount = 0, i = 0, o = 0;
+        int iterationCount = 0, i = 0, o;
+        String date = "", prevDate = "";
         int[][] glucoseSplit = new int[dayCount][288];
         while(iterationCount < dayCount)
         {
-            o = Time.indexAt1DArr(glucoseTime[i]);
+            o = Time.indexAt1DArr(glucoseTime[i].substring(11));
             glucoseSplit[iterationCount][o] = glucose[i];
 
-            //TODO: Additional checks in case of connection loss at midnight (Glucose)
-            if(glucoseTime[i].equals("00:00") && i != 0)
+            date = glucoseTime[i].substring(0, 10);
+            if(date != prevDate && i != 0)
             {
                 iterationCount++;
             }
+            prevDate = date;
+
             i++;
         }
 
         iterationCount = 0;
         i = 0;
-        o = 0;
         int[][] carbsSplit = new int[dayCount][288];
         while(iterationCount < dayCount)
         {
-            o = Time.indexAt1DArr(carbsTime[i]);
+            o = Time.indexAt1DArr(carbsTime[i].substring(11));
             carbsSplit[iterationCount][o] = carbs[i];
 
-            //TODO: Additional checks in case of connection loss at midnight (Carbs)
-            if(carbsTime[i].equals("00:00") && i != 0)
+            date = carbsTime[i].substring(0, 10);
+            if(date != prevDate && i != 0)
             {
                 iterationCount++;
             }
+            prevDate = date;
+
             i++;
         }
 
         iterationCount = 0;
         i = 0;
-        o = 0;
         double[][] fastSplit = new double[dayCount][288];
         while(iterationCount < dayCount)
         {
-            //TODO: Check if logic applies to 2D arrays, or requires additional layers
-            o = Time.indexAt1DArr(fastActingTime[i]);
+            o = Time.indexAt1DArr(fastActingTime[i].substring(11));
             fastSplit[iterationCount][o] = fastActingDosage[i];
 
-            //TODO: Write day logic iterator for insulin counts
+            date = fastActingTime[i].substring(0, 10);
+            if(date != prevDate && i != 0)
+            {
+                iterationCount++;
+            }
+            prevDate = date;
+
             i++;
         }
 
         iterationCount = 0;
         i = 0;
-        o = 0;
         double[][] longSplit = new double[dayCount][288];
         while(iterationCount < dayCount)
         {
-            //TODO: Check if logic applies to 2D arrays, or requires additional layers
-            o = Time.indexAt1DArr(longActingTime[i]);
+            o = Time.indexAt1DArr(longActingTime[i].substring(11));
             longSplit[iterationCount][o] = longActingDosage[i];
 
-            //TODO: Write day logic iterator for insulin counts
+            date = longActingTime[i].substring(0, 10);
+            if(date != prevDate && i != 0)
+            {
+                iterationCount++;
+            }
+            prevDate = date;
+
             i++;
         }
 
+        ArrayList<ArrayList<Integer>> exerciseSplit = new ArrayList<ArrayList<Integer>>(dayCount);
+        for(i = 0; i < exerciseStartTimes.length; i++)
+        {
 
+        }
 
-        //Create day array to match
-        //Create Day objects
-        //Return Arraylist of days
+        //Day(int[][] glucose, int[][] carbs, boolean[][] exercise, double[][] fastActingInsulin, double[][] longActingInsulin, String date)
+        ArrayList<Day> days = new ArrayList<Day>();
+        int[][] glucoseEnter, carbsEnter;
+        double[][] fastEnter, longEnter;
+        boolean [][] exercise;
+        for(i = 0; i < dayCount; i++)
+        {
+
+        }
+
+        return null;
     }
 
 }
