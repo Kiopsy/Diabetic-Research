@@ -40,23 +40,23 @@ public class Input {
                 {
                     String time = list[i][1];
                     //Round time to nearest
-                    Integer timeRound = Integer.valueOf(time.substring(3));
+                    Integer timeRound = Integer.valueOf(time.substring(14, 16));
                     if((timeRound / 5) % 2 == 1)
                     {
                         timeRound = ((timeRound / 10) + 1) * 10;
                         if(timeRound == 60)
                         {
-                            time = (Integer.parseInt(time.substring(0, 2)) + 1) + ":00";
+                            time = (Integer.parseInt(time.substring(11, 13)) + 1) + ":00";
                         }
                         else
                         {
-                            time = time.substring(0, 3) + timeRound.toString();
+                            time = time.substring(11, 14) + timeRound.toString();
                         }
                     }
                     else
                     {
                         timeRound = ((timeRound / 10) * 10) + 5;
-                        time = time.substring(0, 3) + timeRound.toString();
+                        time = time.substring(11, 14) + timeRound.toString();
                     }
 
                     //Gets position for writing to
@@ -79,7 +79,7 @@ public class Input {
                     else if(list[i][2].equals("Carbs"))
                     {
 
-                        Integer carbsLevel = (int) Double.parseDouble(list[i][8]);
+                        Integer carbsLevel = Integer.parseInt(list[i][9]);
 
                         carbs.add(carbsLevel);
                         carbsTime.add(time);
