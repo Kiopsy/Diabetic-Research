@@ -7,9 +7,6 @@ import com.opencsv.CSVReaderBuilder;
 import com.opencsv.CSVWriter;
 
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,8 +29,8 @@ public class Output {
             String[] lines = days.get(i).dayToString();
             try{
                 parser = new CSVReader(new FileReader(fileAddress));
-                List<String[]> allRows = parser.readAll();;
-                datesWritten = ReaderHelp.ReaderHelp(allRows);
+                List<String[]> allRows = parser.readAll();
+                datesWritten = ReaderHelp.listOfDaysWritten(allRows);
                 for(int a = 0; a<datesWritten.size(); a++) {
                     System.out.println(datesWritten.get(a));
                 }
@@ -50,6 +47,7 @@ public class Output {
                         }
                         csvWriter.flush();
                         csvWriter.close();
+
                     } catch (IOException e) {
 
                     }

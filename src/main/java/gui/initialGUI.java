@@ -30,7 +30,7 @@ public class initialGUI extends JFrame{
         JPanel screen = new JPanel(new GridBagLayout());
         frame = new JFrame();
         frame.setTitle("Import Target CSV");
-        frame.setSize(450,250);
+        frame.setSize(450,275);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
 
@@ -38,6 +38,7 @@ public class initialGUI extends JFrame{
         JButton selectFile = new JButton("Select File");
         JTextField fileAddress = new JTextField("Enter file address here:", 20);
         JLabel importTitle = new JLabel("Import Target CSV");
+        JLabel importNote = new JLabel("CSV must be downloaded from Dexcom Clarity");
         JButton selectDirectory = new JButton("Select Directory");
         JTextField fileDirectory = new JTextField("Enter output directory here:", 20);
         JLabel outputTitle = new JLabel("Select Output Directory");
@@ -51,13 +52,20 @@ public class initialGUI extends JFrame{
 
         c.gridwidth = 4;
         c.gridx = 1;
-        c.gridy = 3;
+        c.gridy = 2;
         screen.add(importTitle, c);
 
         c.gridwidth = 4;
         c.gridx = 1;
-        c.gridy = 4;
+        c.gridy = 3;
         screen.add(s1, c);
+
+        importNote.setFont(new Font("TimesRoman", Font.ITALIC, 13));
+
+        c.gridwidth = 4;
+        c.gridx = 1;
+        c.gridy = 4;
+        screen.add(importNote, c);
 
         c.gridwidth = 3;
         c.gridx = 1;

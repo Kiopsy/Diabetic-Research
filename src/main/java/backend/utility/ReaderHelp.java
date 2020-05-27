@@ -1,13 +1,16 @@
 package backend.utility;
 
+import com.opencsv.CSVReader;
+
 import javax.print.DocFlavor;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ReaderHelp {
 
     //input a List<String[]> of the csv of Day outputs (with header line) and returns ArrayList<String> of dates already written
-    public static ArrayList<String> ReaderHelp(List<String[]> allRows){
+    public static ArrayList<String> listOfDaysWritten(List<String[]> allRows){
         ArrayList<String> dates = new ArrayList<String>();
         String date;
         for(int i = 1; i<allRows.size(); i+=24){
@@ -26,5 +29,34 @@ public class ReaderHelp {
             }
         }
         return dayWritten;
+    }
+
+    public static void sorter(){
+
+    }
+
+    public static boolean isFileSorted(String fileAddress){
+        CSVReader parser;
+        ArrayList<String> datesWritten;
+        int max;
+        boolean isFileSorted = true;
+        try {
+            parser = new CSVReader(new FileReader(fileAddress));
+
+            List<String[]> allRows = parser.readAll();
+            datesWritten = ReaderHelp.listOfDaysWritten(allRows);
+
+            for(int i = 0; i < datesWritten.size(); i++){
+
+            }
+
+
+        } catch (FileNotFoundException e) {
+
+        } catch (IOException e) {
+
+        }
+        return isFileSorted;
+
     }
 }
