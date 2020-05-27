@@ -8,24 +8,23 @@ import java.util.ArrayList;
 
 public class splitObjects {
 
-    private ArrayList<String> dayList = new ArrayList<String>();
-    private int[] glucose;
-    private String[] glucoseTime;
-    private int[] carbs;
-    private String[] carbsTime;
-    private double[] fastActingDosage;
-    private String[] fastActingTime;
-    private double[] longActingDosage;
-    private String[] longActingTime;
-    private String[] exerciseStartTimes;
-    private String[] exerciseDuration;
+    private static ArrayList<String> dayList = new ArrayList<String>();
+    private static int[] glucose;
+    private static String[] glucoseTime;
+    private static String[] carbsTime;
+    private static double[] fastActingDosage;
+    private static String[] fastActingTime;
+    private static double[] longActingDosage;
+    private static String[] longActingTime;
+    private static String[] exerciseStartTimes;
+    private static String[] exerciseDuration;
 
-    public ArrayList<Day> splitObjectTransfer(ObjectTransfer object)
+    public static ArrayList<Day> splitObjectTransfer(ObjectTransfer object)
     {
         //Extract from Objectransfer class
         glucose = object.getGlucose();
         glucoseTime = object.getGlucoseTime();
-        carbs = object.getCarbs();
+        int[] carbs = object.getCarbs();
         carbsTime = object.getCarbsTime();
         fastActingDosage = object.getFastActingDosage();
         fastActingTime = object.getFastActingTime();
