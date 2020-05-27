@@ -19,7 +19,7 @@ public class Day{
         //Array of each row in the final file
         // //Cell format: time_24hr-glucose_level-carbs_intake-whether_exercising-fastActingInsulin_intake-longActingInsulin_intake
         //Example cell: 20:30-123-20-false-0-23 (represents 123 mg/deciliter of glucose in blood at 8:30pm, 20 grams of carbs eaten, no exercise at given time, no fast acting insulin, and 23u of long acting insulin)
-        this.time = Time.timeArr;
+        this.time = Time.getTimeArr();
         this.glucose = glucose;
         this.carbs = carbs;
         this.exercise = exercise;

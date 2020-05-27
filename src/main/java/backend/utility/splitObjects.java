@@ -141,15 +141,39 @@ public class splitObjects {
 
         //Day(int[][] glucose, int[][] carbs, boolean[][] exercise, double[][] fastActingInsulin, double[][] longActingInsulin, String date)
         ArrayList<Day> days = new ArrayList<Day>();
-        int[][] glucoseEnter, carbsEnter;
-        double[][] fastEnter, longEnter;
-        boolean [][] exercise;
+        int[][] glucoseEnter = new int[24][12], carbsEnter = new int[24][12];
+        double[][] fastEnter = new double[24][12], longEnter = new double[24][12];
         for(i = 0; i < dayCount; i++)
         {
+            for(o = 0; o < 288; o++)
+            {
+                int x = 0 % 12, y = 0 / 12;
+                glucoseEnter[y][x] = glucoseSplit[i][o];
+            }
 
+            for(o = 0; o < 288; o++)
+            {
+                int x = 0 % 12, y = 0 / 12;
+                carbsEnter[y][x] = carbsSplit[i][o];
+            }
+
+            for(o = 0; o < 288; o++)
+            {
+                int x = 0 % 12, y = 0 / 12;
+                fastEnter[y][x] = fastSplit[i][o];
+            }
+
+            for(o = 0; o < 288; o++)
+            {
+                int x = 0 % 12, y = 0 / 12;
+                longEnter[y][x] = longSplit[i][o];
+            }
+
+            Day temp = new Day(glucoseEnter, carbsEnter, exerciseSplit[i].getExerciseArr(), fastEnter, longEnter, dayList.get(i));
+            days.add(temp);
         }
 
-        return null;
+        return days;
     }
 
 }
