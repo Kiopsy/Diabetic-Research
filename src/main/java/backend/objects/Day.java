@@ -1,5 +1,7 @@
 package backend.objects;
 
+import backend.utility.Time;
+
 public class Day{
 
     private String[] day = new String[288];

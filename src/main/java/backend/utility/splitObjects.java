@@ -1,8 +1,8 @@
 package backend.utility;
 
 import backend.objects.Day;
+import backend.objects.Exercise;
 import backend.objects.ObjectTransfer;
-import backend.objects.Time;
 
 import java.util.ArrayList;
 
@@ -124,10 +124,19 @@ public class splitObjects {
             i++;
         }
 
-        ArrayList<ArrayList<Integer>> exerciseSplit = new ArrayList<ArrayList<Integer>>(dayCount);
+        Exercise[] exerciseSplit = new Exercise[dayCount];
         for(i = 0; i < exerciseStartTimes.length; i++)
         {
+            date = exerciseStartTimes[i].substring(0, 10);
+            for(iterationCount = 0; iterationCount < dayList.size(); iterationCount++)
+            {
+                if(date.equals(dayList.get(iterationCount)))
+                {
+                    break;
+                }
+            }
 
+            exerciseSplit[iterationCount].setExercisePeriod(exerciseStartTimes[i], exerciseDuration[i]);
         }
 
         //Day(int[][] glucose, int[][] carbs, boolean[][] exercise, double[][] fastActingInsulin, double[][] longActingInsulin, String date)

@@ -1,6 +1,5 @@
-package backend.objects;
+package backend.utility;
 
-import backend.utility.Position;
 import java.lang.Math;
 
 public class Time {

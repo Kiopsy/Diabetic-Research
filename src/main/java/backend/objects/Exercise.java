@@ -1,6 +1,7 @@
 package backend.objects;
 
 import backend.utility.Position;
+import backend.utility.Time;
 
 public class Exercise {
     private boolean[][] exerciseArr = new boolean[][]{
@@ -44,9 +45,14 @@ public class Exercise {
         }
     }
 
-    public void setExercisePeriod(String time, int duration)
+    public void setExercisePeriod(String time, String duration)
     {
-
+        Position p;
+        Position[] exerciseDuration = Time.timeSpan(time, Time.timeStringToMinutes(duration));
+        for(int k = 0; k<exerciseDuration.length; k++) {
+            p = exerciseDuration[k];
+            exerciseArr[p.getColumnPosition()][p.getRowPosition()] = true;
+        }
     }
 
     public boolean[][] getExerciseArr() {
