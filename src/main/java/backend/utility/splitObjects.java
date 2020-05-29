@@ -105,11 +105,24 @@ public class splitObjects {
             i++;
         }
 
+        /**
+        for(i = 0; i < dayList.size(); i++)
+        {
+            if(dayList.get(i).equals(longActingTime[0].substring(11)))
+            {
+                break;
+            }
+        }
+         */
         iterationCount = 0;
         i = 0;
         double[][] longSplit = new double[dayCount][288];
         while(iterationCount < dayCount)
         {
+            //TODO: Change this to allow for no-insulin days
+            //This next few lines assumes that the user will take insulin every single day
+            //It compares the number of insulin entries against the number of days in the spreadsheet
+            //If a day is without an insulin entry, then it breaks.
             o = Time.indexAt1DArr(longActingTime[i].substring(11));
             longSplit[iterationCount][o] = longActingDosage[i];
 
