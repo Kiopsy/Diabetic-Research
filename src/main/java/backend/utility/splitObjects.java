@@ -35,7 +35,7 @@ public class splitObjects {
 
         int dayCount = 0;
         String previousDate = "";
-        String currentDate;
+        String currentDate, instantDay;
 
         //Check how many days
         for(int i = 0; i < glucoseTime.length; i++)
@@ -51,91 +51,90 @@ public class splitObjects {
         }
         ArrayList<Day> returnObject = new ArrayList<Day>(dayCount);
 
-        int iterationCount = 0, i = 0, o;
+        int i = 0, p = 0, o;
         String date = "", prevDate = "";
         int[][] glucoseSplit = new int[dayCount][288];
-        while(iterationCount < dayCount)
+        while(i < glucoseTime.length)
         {
-            o = Time.indexAt1DArr(glucoseTime[i].substring(11));
-            glucoseSplit[iterationCount][o] = glucose[i];
-
-            date = glucoseTime[i].substring(0, 10);
-            if(date != prevDate && i != 0)
-            {
-                iterationCount++;
-            }
-            prevDate = date;
-
-            i++;
-        }
-
-        iterationCount = 0;
-        i = 0;
-        int[][] carbsSplit = new int[dayCount][288];
-        while(iterationCount < dayCount)
-        {
-            o = Time.indexAt1DArr(carbsTime[i].substring(11));
-            carbsSplit[iterationCount][o] = carbs[i];
-
             date = carbsTime[i].substring(0, 10);
-            if(date != prevDate && i != 0)
+            //Lookup of date index
+            for(p = 0; p < dayList.size(); p++)
             {
-                iterationCount++;
+                if(date.equals(dayList.get(p)))
+                {
+                    break;
+                }
             }
-            prevDate = date;
+
+            o = Time.indexAt1DArr(glucoseTime[i].substring(11));
+            glucoseSplit[p][o] = glucose[i];
 
             i++;
         }
 
-        iterationCount = 0;
         i = 0;
+        p = 0;
+        int[][] carbsSplit = new int[dayCount][288];
+        while(i < carbsTime.length)
+        {
+            date = carbsTime[i].substring(0, 10);
+            //Lookup of date index
+            for(p = 0; p < dayList.size(); p++)
+            {
+                if(date.equals(dayList.get(p)))
+                {
+                    break;
+                }
+            }
+
+            o = Time.indexAt1DArr(carbsTime[i].substring(11));
+            carbsSplit[p][o] = carbs[i];
+
+            i++;
+        }
+
+        i = 0;
+        p = 0;
         double[][] fastSplit = new double[dayCount][288];
-        while(iterationCount < dayCount)
+        while(i < fastActingTime.length)
         {
-            o = Time.indexAt1DArr(fastActingTime[i].substring(11));
-            fastSplit[iterationCount][o] = fastActingDosage[i];
-
             date = fastActingTime[i].substring(0, 10);
-            if(date != prevDate && i != 0)
+            //Lookup of date index
+            for(p = 0; p < dayList.size(); p++)
             {
-                iterationCount++;
+                if(date.equals(dayList.get(p)))
+                {
+                    break;
+                }
             }
-            prevDate = date;
+
+            o = Time.indexAt1DArr(fastActingTime[i].substring(11));
+            fastSplit[p][o] = fastActingDosage[i];
 
             i++;
         }
 
-        /**
-        for(i = 0; i < dayList.size(); i++)
-        {
-            if(dayList.get(i).equals(longActingTime[0].substring(11)))
-            {
-                break;
-            }
-        }
-         */
-        iterationCount = 0;
         i = 0;
+        p = 0;
         double[][] longSplit = new double[dayCount][288];
-        while(iterationCount < dayCount)
+        while(i < longActingTime.length)
         {
-            //TODO: Change this to allow for no-insulin days
-            //This next few lines assumes that the user will take insulin every single day
-            //It compares the number of insulin entries against the number of days in the spreadsheet
-            //If a day is without an insulin entry, then it breaks.
-            o = Time.indexAt1DArr(longActingTime[i].substring(11));
-            longSplit[iterationCount][o] = longActingDosage[i];
-
             date = longActingTime[i].substring(0, 10);
-            if(date != prevDate && i != 0)
+            //Lookup of date index
+            for(p = 0; p < dayList.size(); p++)
             {
-                iterationCount++;
+                if(date.equals(dayList.get(p)))
+                {
+                    break;
+                }
             }
-            prevDate = date;
+            o = Time.indexAt1DArr(longActingTime[i].substring(11));
+            longSplit[p][o] = longActingDosage[i];
 
             i++;
         }
 
+        int iterationCount = 0;
         Exercise[] exerciseSplit = new Exercise[dayCount];
         for(i = 0; i < exerciseStartTimes.length; i++)
         {
