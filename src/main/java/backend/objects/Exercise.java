@@ -31,6 +31,11 @@ public class Exercise {
             {false,false,false,false,false,false,false,false,false,false,false,false}
     };
 
+    public Exercise()
+    {
+
+    }
+
     //note: times and insulin MUST be parallel arrays
     public Exercise(String[] startTimes, String[] duration){
         Position p = new Position(0,0);
@@ -46,12 +51,12 @@ public class Exercise {
     }
 
     public void setExercisePeriod(String time, String duration)
-    {
-        Position p;
-        Position[] exerciseDuration = Time.timeSpan(time, Time.timeStringToMinutes(duration));
-        for(int k = 0; k<exerciseDuration.length; k++) {
-            p = exerciseDuration[k];
-            exerciseArr[p.getColumnPosition()][p.getRowPosition()] = true;
+            {
+                Position p;
+                Position[] exerciseDuration = Time.timeSpan(time, Time.timeStringToMinutes(duration));
+                for(int k = 0; k<exerciseDuration.length; k++) {
+                    p = exerciseDuration[k];
+                    exerciseArr[p.getColumnPosition()][p.getRowPosition()] = true;
         }
     }
 

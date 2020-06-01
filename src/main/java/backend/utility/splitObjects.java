@@ -56,7 +56,7 @@ public class splitObjects {
         int[][] glucoseSplit = new int[dayCount][288];
         while(i < glucoseTime.length)
         {
-            date = carbsTime[i].substring(0, 10);
+            date = glucoseTime[i].substring(0, 10);
             //Lookup of date index
             for(p = 0; p < dayList.size(); p++)
             {
@@ -136,6 +136,10 @@ public class splitObjects {
 
         int iterationCount = 0;
         Exercise[] exerciseSplit = new Exercise[dayCount];
+        for(int z = 0; z < exerciseSplit.length; z++)
+        {
+            exerciseSplit[z] = new Exercise();
+        }
         for(i = 0; i < exerciseStartTimes.length; i++)
         {
             date = exerciseStartTimes[i].substring(0, 10);
@@ -150,7 +154,6 @@ public class splitObjects {
             exerciseSplit[iterationCount].setExercisePeriod(exerciseStartTimes[i], exerciseDuration[i]);
         }
 
-        //Day(int[][] glucose, int[][] carbs, boolean[][] exercise, double[][] fastActingInsulin, double[][] longActingInsulin, String date)
         ArrayList<Day> days = new ArrayList<Day>();
         int[][] glucoseEnter = new int[24][12], carbsEnter = new int[24][12];
         double[][] fastEnter = new double[24][12], longEnter = new double[24][12];
@@ -158,25 +161,25 @@ public class splitObjects {
         {
             for(o = 0; o < 288; o++)
             {
-                int x = 0 % 12, y = 0 / 12;
+                int x = o % 12, y = o / 12;
                 glucoseEnter[y][x] = glucoseSplit[i][o];
             }
 
             for(o = 0; o < 288; o++)
             {
-                int x = 0 % 12, y = 0 / 12;
+                int x = o % 12, y = o / 12;
                 carbsEnter[y][x] = carbsSplit[i][o];
             }
 
             for(o = 0; o < 288; o++)
             {
-                int x = 0 % 12, y = 0 / 12;
+                int x = o % 12, y = o / 12;
                 fastEnter[y][x] = fastSplit[i][o];
             }
 
             for(o = 0; o < 288; o++)
             {
-                int x = 0 % 12, y = 0 / 12;
+                int x = o % 12, y = o / 12;
                 longEnter[y][x] = longSplit[i][o];
             }
 

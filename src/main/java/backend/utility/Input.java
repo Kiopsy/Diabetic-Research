@@ -104,7 +104,7 @@ public class Input {
                     else if(list[i][2].equals("Exercise"))
                     {
 
-                        String exerciseLength = list[i][9];
+                        String exerciseLength = list[i][10];
 
                         exerciseDuration.add(exerciseLength);
                         exerciseStartTimes.add(time);
