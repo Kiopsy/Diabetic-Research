@@ -67,9 +67,17 @@ public class Input {
                     //This overarching If/Else loop checks for the type of event
                     if(list[i][2].equals("EGV"))
                     {
-
+                        Integer glucoseLevel;
                         //Find the length of the Glucose Index
-                        Integer glucoseLevel = Integer.valueOf(list[i][7]);
+                        if(list[i][7].equals("Low"))
+                        {
+                            glucoseLevel = 40;
+                        }
+                        else
+                        {
+                             glucoseLevel = Integer.valueOf(list[i][7]);
+                        }
+
 
                         //Writes glucose
                         glucose.add(glucoseLevel);
