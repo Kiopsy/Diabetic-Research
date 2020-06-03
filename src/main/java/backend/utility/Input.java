@@ -2,10 +2,13 @@ package backend.utility;
 
 import backend.objects.*;
 import com.opencsv.CSVReader;
+
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class Input {
 
@@ -20,7 +23,7 @@ public class Input {
     private static ArrayList<String> exerciseStartTimes = new ArrayList<String>();
     private static ArrayList<String>  exerciseDuration  = new ArrayList<String>();
 
-    public static ObjectTransfer parseCSV(String fileName)
+    public static ObjectTransfer parseDexcomCSV(String fileName)
     {
         CSVReader parser;
         try {
@@ -120,5 +123,9 @@ public class Input {
         }
 
         return null;
+    }
+
+    public static List<File> parseLocalCSV(String directory){
+
     }
 }

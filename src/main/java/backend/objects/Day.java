@@ -5,7 +5,7 @@ import backend.utility.Time;
 public class Day{
 
     private String[] day = new String[288];
-    //Format: YYY-MM-DD
+    //Format: YYYY-MM-DD
     private String date;
     private String[][] time;
     private int[][] glucose;

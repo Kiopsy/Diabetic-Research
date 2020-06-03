@@ -1,15 +1,7 @@
-import backend.objects.*;
-//import backend.utility.Input;
 import backend.utility.Input;
 import backend.utility.Output;
-import backend.utility.Position;
 import backend.utility.splitObjects;
 import gui.initialGUI;
-
-import javax.swing.*;
-import java.util.ArrayList;
-
-import static backend.utility.splitObjects.*;
 
 public class main {
 
@@ -24,7 +16,7 @@ public class main {
 
         String fileDirectory = output[1];
 
-        Output.outputWriter(splitObjects.splitObjectTransfer(Input.parseCSV(fileAddress)), fileDirectory);
+        Output.outputWriter(splitObjects.splitObjectTransfer(Input.parseDexcomCSV(fileAddress)), fileDirectory);
 
         program.closeGUI();
     }
