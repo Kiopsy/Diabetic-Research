@@ -43,6 +43,10 @@ public class Carbs {
         }
     }
 
+    public Carbs(){
+
+    }
+
     public int[][] getCarbsArr() {
         return carbsArr;
     }

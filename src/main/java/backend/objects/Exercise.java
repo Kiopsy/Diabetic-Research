@@ -50,6 +50,7 @@ public class Exercise {
         }
     }
 
+
     public void setExercisePeriod(String time, String duration)
             {
                 Position p;

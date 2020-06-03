@@ -11,6 +11,7 @@ public class splitObjects {
     private static ArrayList<String> dayList = new ArrayList<String>();
     private static int[] glucose;
     private static String[] glucoseTime;
+    private static int[] carbs;
     private static String[] carbsTime;
     private static double[] fastActingDosage;
     private static String[] fastActingTime;
@@ -24,7 +25,7 @@ public class splitObjects {
         //Extract from Objectransfer class
         glucose = object.getGlucose();
         glucoseTime = object.getGlucoseTime();
-        int[] carbs = object.getCarbs();
+        carbs = object.getCarbs();
         carbsTime = object.getCarbsTime();
         fastActingDosage = object.getFastActingDosage();
         fastActingTime = object.getFastActingTime();
@@ -38,6 +39,7 @@ public class splitObjects {
         String currentDate, instantDay;
 
         //Check how many days
+        //Checks how many days with info from all time arrays. If a day is present in one of the arrays that is not in others, it adds that day to the list.
         for(int i = 0; i < glucoseTime.length; i++)
         {
             currentDate = glucoseTime[i].substring(0, 10);
