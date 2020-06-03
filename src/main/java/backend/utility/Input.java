@@ -134,6 +134,6 @@ public class Input {
     }
 
     public static List<File> parseLocalCSV(String directory){
-
+        return null;
     }
 }
