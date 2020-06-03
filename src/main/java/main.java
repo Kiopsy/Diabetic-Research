@@ -27,6 +27,11 @@ public class main {
         Output.outputWriter(splitObjects.splitObjectTransfer(Input.parseCSV(fileAddress)), fileDirectory);
 
         program.closeGUI();
+
+            /**
+             Bugs:
+             1. All events other than glucose are being rounded up. Happens if an event occurs on the 5 minute mark.
+             */
     }
 
 }

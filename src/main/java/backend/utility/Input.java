@@ -24,7 +24,6 @@ public class Input {
     {
         CSVReader parser;
         try {
-
             parser = new CSVReader(new FileReader(fileName));
             List<String[]> allRows = parser.readAll();
 
@@ -47,6 +46,7 @@ public class Input {
                         if(timeRound == 60)
                         {
                             time = (Integer.parseInt(time.substring(11, 13)) + 1) + ":00";
+                            System.out.println(time);
                         }
                         else
                         {
