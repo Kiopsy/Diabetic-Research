@@ -119,6 +119,7 @@ public class initialGUI extends JFrame{
         frame.getContentPane().add(screen);
         frame.setVisible(true);
 
+
         selectFile.addActionListener(new ActionListener() {
 
             @Override
@@ -148,7 +149,7 @@ public class initialGUI extends JFrame{
                 }
             }
         });
-        
+
         while(!buttonPressed) {
             update.addActionListener(new ActionListener() {
 
@@ -159,6 +160,8 @@ public class initialGUI extends JFrame{
             });
 
         }
+
+
         output[0] = fileAddress.getText();
         output[1] = fileDirectory.getText();
         return output;
