@@ -28,11 +28,13 @@ public class Output {
             try{
                 parser = new CSVReader(new FileReader(fileAddress));
                 List<String[]> allRows = parser.readAll();
-                datesWritten = ReaderHelp.listOfDaysWritten(allRows);
+                datesWritten = Helper.listOfDaysWritten(allRows);
+                /*
                 for(int a = 0; a<datesWritten.size(); a++) {
-                    System.out.println(datesWritten.get(a) + " Output.java Run1");
+                    System.out.println(datesWritten.get(a));
                 }
-                if(ReaderHelp.isDayWritten(datesWritten, days.get(i).getDate())){
+                */
+                if(Helper.isDayWritten(datesWritten, days.get(i).getDate())){
 
                 }
                 else{

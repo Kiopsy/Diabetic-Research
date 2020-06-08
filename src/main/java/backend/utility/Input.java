@@ -45,26 +45,8 @@ public class Input {
                 if(i > 10)
                 {
                     String time = list[i][1];
-                    //Round time to nearest
-                    Integer timeRound = Integer.valueOf(time.substring(14, 16));
-                    if((timeRound / 5) % 2 == 1)
-                    {
-                        timeRound = ((timeRound / 10) + 1) * 10;
-                        if(timeRound == 60)
-                        {
-                            time = (Integer.parseInt(time.substring(11, 13)) + 1) + ":00";
-                            System.out.println(time + " Input.java Run1");
-                        }
-                        else
-                        {
-                            time = time.substring(11, 14) + timeRound.toString();
-                        }
-                    }
-                    else
-                    {
-                        timeRound = ((timeRound / 10) * 10) + 5;
-                        time = time.substring(11, 14) + timeRound.toString();
-                    }
+                    //Round time to nearest 5
+                    time = Helper.roundTime5Min(time);
 
                     //Gets position for writing to
                     Position writeTo = Time.positionAt(time);
