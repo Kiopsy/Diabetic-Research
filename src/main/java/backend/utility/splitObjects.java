@@ -48,24 +48,28 @@ public class splitObjects {
             }
             System.out.println();
         }
+        System.out.println();
         for(int i = 0; i<carbsDates.length; i++){
             for(int k = 0; k< carbsDates[i].length; k++){
                 System.out.print(carbsDates[i][k] + " ");
             }
             System.out.println();
         }
+        System.out.println();
         for(int i = 0; i<FADates.length; i++){
             for(int k = 0; k<FADates[i].length; k++){
                 System.out.print(FADates[i][k] + " ");
             }
             System.out.println();
         }
+        System.out.println();
         for(int i = 0; i<LADates.length; i++){
             for(int k = 0; k<LADates[i].length; k++){
                 System.out.print(LADates[i][k] + " ");
             }
             System.out.println();
         }
+        System.out.println();
         for(int i = 0; i< exerciseDates.length; i++){
             for(int k = 0; k<exerciseDates[i].length; k++){
                 System.out.print(exerciseDates[i][k] + " ");
