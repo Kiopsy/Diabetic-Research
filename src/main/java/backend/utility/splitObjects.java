@@ -74,6 +74,11 @@ public class splitObjects {
             i++;
         }
 
+        for(i = 0; i < glucoseSplit.length; i++)
+        {
+            System.out.println(glucoseSplit[i][1] + " Run1");
+        }
+
         i = 0;
         p = 0;
         int[][] carbsSplit = new int[dayCount][288];
@@ -187,6 +192,11 @@ public class splitObjects {
 
             Day temp = new Day(glucoseEnter, carbsEnter, exerciseSplit[i].getExerciseArr(), fastEnter, longEnter, dayList.get(i));
             days.add(temp);
+        }
+
+        for(i = 0; i < glucoseEnter.length; i++)
+        {
+            System.out.println(glucoseEnter[i][1] + " Run2");
         }
 
         return days;

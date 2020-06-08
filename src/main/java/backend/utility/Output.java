@@ -30,7 +30,7 @@ public class Output {
                 List<String[]> allRows = parser.readAll();
                 datesWritten = ReaderHelp.listOfDaysWritten(allRows);
                 for(int a = 0; a<datesWritten.size(); a++) {
-                    System.out.println(datesWritten.get(a));
+                    System.out.println(datesWritten.get(a) + " Output.java Run1");
                 }
                 if(ReaderHelp.isDayWritten(datesWritten, days.get(i).getDate())){
 

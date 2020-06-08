@@ -49,7 +49,7 @@ public class Input {
                         if(timeRound == 60)
                         {
                             time = (Integer.parseInt(time.substring(11, 13)) + 1) + ":00";
-                            System.out.println(time);
+                            System.out.println(time + " Input.java Run1");
                         }
                         else
                         {
@@ -122,7 +122,7 @@ public class Input {
                     }
                 }
             }
-           
+
             ObjectTransfer object = new ObjectTransfer(glucose, glucoseTime, carbs, carbsTime, fastActingDosage, fastActingTime, longActingDosage, longActingTime, exerciseStartTimes, exerciseDuration);
             return object;
 
