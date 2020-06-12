@@ -31,11 +31,10 @@ public class Exercise {
             {false,false,false,false,false,false,false,false,false,false,false,false}
     };
 
-    public Exercise()
-    {
+    public Exercise(){
 
     }
-
+    
     //note: times and insulin MUST be parallel arrays
     public Exercise(String[] startTimes, String[] duration){
         Position p = new Position(0,0);

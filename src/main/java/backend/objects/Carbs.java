@@ -39,7 +39,13 @@ public class Carbs {
             p = Time.positionAt(times[i]);
             columnPos = p.getColumnPosition();
             rowPos = p.getRowPosition();
-            carbsArr[columnPos][rowPos] = carbs[i];
+            //accounts for multiple inputs for one 5 minute slot
+            if(carbsArr[columnPos][rowPos] != 0){
+                carbsArr[columnPos][rowPos] = carbsArr[columnPos][rowPos] + carbs[i];
+            }
+            else{
+                carbsArr[columnPos][rowPos] = carbs[i];
+            }
         }
     }
 

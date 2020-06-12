@@ -48,9 +48,7 @@ public class Input {
                     //Round time to nearest 5
                     time = Helper.roundTime5Min(time);
 
-                    //Gets position for writing to
-                    Position writeTo = Time.positionAt(time);
-                    time = list[i][1].substring(0, 10) + "_" + time;
+                  //  time = list[i][1].substring(0, 10) + "_" + time;
 
 
                     //This overarching If/Else loop checks for the type of event

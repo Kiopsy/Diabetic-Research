@@ -4,6 +4,8 @@ import com.opencsv.CSVReader;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 public class Helper {
@@ -29,6 +31,30 @@ public class Helper {
             }
         }
         return dayWritten;
+    }
+
+    //given a String[][] (created with splitTimeArray()), and a String date to check, it checks whether the specified date is in the list.
+    public static boolean containsDay(String[][] dates, String date){
+        boolean dayWritten = false;
+        for(int i = 0; i<dates.length; i++){
+            if(dates[i][0].equals(date)){
+                dayWritten = true;
+                break;
+            }
+        }
+        return dayWritten;
+    }
+
+    //given a String[][] (created with splitTimeArray()), and a String date to check, it returns the String[] of indexes.
+    public static String[] dayArrayIndexes(String[][] dates, String date){
+        String[] dayIndexes = new String[3];
+        for(int i = 0; i<dates.length; i++){
+            if(dates[i][0].equals(date)){
+                dayIndexes = dates[i];
+                break;
+            }
+        }
+        return dayIndexes;
     }
 
     //given an String[] of times (ex: 2020-04-18_00:05) returns an ArrayList of dates.
@@ -104,14 +130,33 @@ public class Helper {
         return splitTimeArrays;
     }
 
-    //given a String time (consisting of HH-MM-SS) it returns a String with time rounded to the nearest 5 minutes.
+    //takes a String[] of times with dates and returns a String[] with just the times
+    public static String[] removeDates(String[] withDates){
+        String[] times = new String[withDates.length];
+        for(int i = 0; i<withDates.length; i++){
+            times[i] = withDates[i].substring(11,16);
+        }
+        return times;
+    }
+
+    //given a String time (consisting of YYYY-MM-DD_HH-MM-SS) it returns a String with time rounded to the nearest 5 minutes.
     public static String roundTime5Min(String time){
+
+        String year = time.substring(0,4);
+        String month = time.substring(5,7);
+        String day = time.substring(8,10);
+
+        Calendar calendarDate = new GregorianCalendar(Integer.parseInt(year), Integer.parseInt(month) - 1, Integer.parseInt(day));
+
         //time.substring(14, 16) shows minutes
         //time.substring(11,13) shows hour
         //time.substring(17,19) shows seconds
         String hour = time.substring(11,13);
         String tens = time.substring(14, 15);
         String minute;
+
+        String date;
+
         String timeReturn = null;
 
         int timeRound = Integer.parseInt(time.substring(14, 16));
@@ -141,12 +186,29 @@ public class Helper {
             //then uses an 1D time array to find the next position in the array.
             timeReturn = hour + ":" + minute;
             if(timeReturn.equals("23:55")){
+                calendarDate.add(Calendar.DAY_OF_MONTH, 1);
                 timeReturn = Time.time()[0];
             }
             else{
                 timeReturn = Time.time()[Time.indexAt1DArr(timeReturn) + 1];
             }
         }
+        year = Integer.toString(calendarDate.get(Calendar.YEAR));
+        if(calendarDate.get(Calendar.MONTH)  + 1 < 10){
+            month = "0" + Integer.toString(calendarDate.get(Calendar.MONTH) + 1);
+        }
+        else{
+            month = Integer.toString(calendarDate.get(Calendar.MONTH));
+        }
+        if(calendarDate.get(Calendar.DAY_OF_MONTH)< 10){
+            day = "0" + Integer.toString(calendarDate.get(Calendar.DAY_OF_MONTH));
+        }
+        else{
+            day = Integer.toString(calendarDate.get(Calendar.DAY_OF_MONTH));
+        }
+
+        date = year + "-" + month + "-" + day;
+        timeReturn = date + "_" + timeReturn;
         return timeReturn;
     }
 

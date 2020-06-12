@@ -32,6 +32,10 @@ public class Glucose {
             {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
     };
 
+    public Glucose(){
+
+    }
+
     //note: times and glucose MUST be parallel arrays
     public Glucose(String[] times, int[] glucose){
         Position p = new Position(0,0);
