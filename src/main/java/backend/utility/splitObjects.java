@@ -77,6 +77,9 @@ public class splitObjects {
             System.out.println();
         }
 
+        ArrayList<String> dates = Helper.listOfDays(glucoseDates, carbsDates, FADates, LADates, exerciseDates);
+        for(int i = 0; i<dates.)
+
         ArrayList<Day> days = new ArrayList<Day>();
 
         return days;

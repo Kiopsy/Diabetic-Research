@@ -44,14 +44,46 @@ public class Helper {
         return dates;
     }
 
-    //returns an ArrayList of String[]
-    //each line in the ArrayList will be a new date.
+    //given the 5 2D arrays that are created for each object
+    //returns a ArrayList<String> that lists all the days that have data
+    public static ArrayList<String> listOfDays(String[][] GDates, String[][] CDates, String[][] FADates, String[][] LADates, String[][] EDates){
+        ArrayList<String> dates = new ArrayList<String>();
+        for(int i = 0; i<GDates.length; i++){
+            if(!Helper.isDayWritten(dates, GDates[i][0])){
+                dates.add(GDates[i][0]);
+            }
+        }
+        for(int i = 0; i<CDates.length; i++){
+            if(!Helper.isDayWritten(dates, CDates[i][0])){
+                dates.add(CDates[i][0]);
+            }
+        }
+        for(int i = 0; i<FADates.length; i++){
+            if(!Helper.isDayWritten(dates, FADates[i][0])){
+                dates.add(FADates[i][0]);
+            }
+        }
+        for(int i = 0; i<LADates.length; i++){
+            if(!Helper.isDayWritten(dates, LADates[i][0])){
+                dates.add(LADates[i][0]);
+            }
+        }
+        for(int i = 0; i<EDates.length; i++){
+            if(!Helper.isDayWritten(dates, EDates[i][0])){
+                dates.add(EDates[i][0]);
+            }
+        }
+        return dates;
+    }
+
+    //returns a String[][]
+    //each line in the String[][] will be a new day
     //The String[] will have 3 indexes (0 = date, 1= startDateIndex, 2= endDateIndex)
     //The String[] will give the indexes within the inputted time array that have the same date.
     public static String[][] splitTimeArrays(String[] dateAndTime){
         ArrayList<String> totalDates = Helper.listOfDays(dateAndTime);
         String[][] splitTimeArrays = new String[totalDates.size()][3];
-        int min = 0,max = 0;
+        int min = 0,max = -1;
         for(int i = 0; i<totalDates.size(); i++){
             for(int k = min; k<dateAndTime.length; k++){
                 if(dateAndTime[k].split("_")[0].equals(totalDates.get(i))){
@@ -68,16 +100,10 @@ public class Helper {
             splitTimeArrays[i][2] = Integer.toString(max);
 
             min = max + 1;
-            /*
-            if(i!= totalDates.size()-1)
-            {
-                min = max + 1;
-            }
-
-             */
         }
         return splitTimeArrays;
     }
+
     //given a String time (consisting of HH-MM-SS) it returns a String with time rounded to the nearest 5 minutes.
     public static String roundTime5Min(String time){
         //time.substring(14, 16) shows minutes
@@ -123,6 +149,7 @@ public class Helper {
         }
         return timeReturn;
     }
+
     /*
     public static void sorter(){
 

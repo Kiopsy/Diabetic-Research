@@ -14,12 +14,14 @@ public class main {
         System.out.println(fileAddress);
 
         String fileDirectory = output[1];
+        /*
         System.out.println(Helper.roundTime5Min("2020-04-22T01:12:00"));
-            System.out.println(Helper.roundTime5Min("2020-04-22T00:02:30"));
-            System.out.println(Helper.roundTime5Min("2020-04-22T23:57:31"));
-            System.out.println(Helper.roundTime5Min("2020-04-22T23:55:31"));
-            System.out.println(Helper.roundTime5Min("2020-04-22T00:02:31"));
-            System.out.println(Helper.roundTime5Min("2020-04-22T01:58:00"));
+        System.out.println(Helper.roundTime5Min("2020-04-22T00:02:30"));
+        System.out.println(Helper.roundTime5Min("2020-04-22T23:57:31"));
+        System.out.println(Helper.roundTime5Min("2020-04-22T23:55:31"));
+        System.out.println(Helper.roundTime5Min("2020-04-22T00:02:31"));
+        System.out.println(Helper.roundTime5Min("2020-04-22T01:58:00"));
+        */
         //splitObjects.display(Input.parseDexcomCSV(fileAddress));
         //Output.outputWriter(splitObjects.splitObjectTransfer(Input.parseDexcomCSV(fileAddress)), fileDirectory);
         splitObjects.splitObjectTransfer(Input.parseDexcomCSV(fileAddress));
