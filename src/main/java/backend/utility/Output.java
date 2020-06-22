@@ -23,7 +23,7 @@ public class Output {
         ArrayList<String> datesWritten;
 
         for(int i = 0; i < days.size(); i++){
-            fileAddress = directory + "\\" + monthArr[days.get(i).getMonth() - 1] + days.get(i).getYear() + ".csv";
+            fileAddress = directory + "\\" + days.get(i).getYear() + "\\"  + monthArr[days.get(i).getMonth() - 1] + days.get(i).getYear() + ".csv";
             String[] lines = days.get(i).dayToString();
             try{
                 parser = new CSVReader(new FileReader(fileAddress));
@@ -53,6 +53,11 @@ public class Output {
                     }
                 }
             } catch (FileNotFoundException e) {
+                //Creating a File object
+                File file = new File(directory + "\\" + days.get(i).getYear());
+                //Creating the directory of the year of the date that is trying to be written.
+                //note: This will create a directory if one does not exist. If it does exist it will not overwrite that folder.
+                file.mkdir();
                 fileName = new File(fileAddress);
                 try{
                     csvWriter = new FileWriter(fileName);
