@@ -11,7 +11,6 @@ public class main {
         initialGUI program = new initialGUI();
         String[] output = program.GUI();
         String fileAddress = output[0];
-        System.out.println(fileAddress);
         String fileDirectory = output[1];
         Output.outputWriter(splitObjects.splitObjectTransfer(Input.parseDexcomCSV(fileAddress)), fileDirectory);
 

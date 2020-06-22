@@ -120,12 +120,19 @@ public class Input {
     }
 
     public static void parseLocalCSV(String directory){
+        //method first reads all the files that have been written to an output directory
         File file = new File(directory);
-        File[] fileList = file.listFiles();
-        for(int i = 0; i<fileList.length; i++){
-            System.out.println(fileList[i].toString());
+        File[] yearList = file.listFiles();
+        File[] monthList;
+        //then creates and instantiates a ArrayList<String> of all the fileAddresses of every csv that the program has written onto the users PC
+        ArrayList<String> monthFileAddresses = new ArrayList<String>();
+        for(int i = 0; i<yearList.length; i++){
+            monthList = yearList[i].listFiles();
+            for(int k = 0; k<monthList.length; k++){
+                monthFileAddresses.add(monthList[k].toString());
+                System.out.println(monthList[k].toString());
+            }
         }
-
 
     }
 }
