@@ -121,26 +121,11 @@ public class Input {
 
     public static void parseLocalCSV(String directory){
         File file = new File(directory);
-        String[] directories = file.list(new FilenameFilter() {
-            @Override
-            public boolean accept(File current, String name) {
-                return new File(current, name).isDirectory();
-            }
-        });
-        String[] files = file.list(new FilenameFilter() {
-            @Override
-            public boolean accept(File current, String name) {
-                return new File(current, name).isFile();
-            }
-        });
-        System.out.println(Arrays.toString(files));
-        try (Stream<Path> paths = Files.walk(Paths.get(directory))) {
-            paths
-                    .filter(Files::isRegularFile)
-                    .forEach(System.out::println);
-        } catch (IOException e) {
-
+        File[] fileList = file.listFiles();
+        for(int i = 0; i<fileList.length; i++){
+            System.out.println(fileList[i].toString());
         }
+
 
     }
 }
