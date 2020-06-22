@@ -16,7 +16,7 @@ public class main {
         Output.outputWriter(splitObjects.splitObjectTransfer(Input.parseDexcomCSV(fileAddress)), fileDirectory);
 
         //Victor's testing for outputing all file names from directory fileDirectory
-        //Input.parseLocalCSV(fileDirectory);
+        Input.parseLocalCSV(fileDirectory);
         program.closeGUI();
 
     }
