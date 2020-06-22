@@ -55,7 +55,7 @@ public class splitObjects {
             double[] dosage;
             String[] duration;
 
-            //
+            //creates the Glucose object for date dates.get(i)
             if(Helper.containsDay(glucoseDates, dates.get(i))){
                 dayIndexes = Helper.dayArrayIndexes(glucoseDates, dates.get(i));
                 min = Integer.parseInt(dayIndexes[1]);
@@ -69,7 +69,7 @@ public class splitObjects {
                 g = new Glucose();
             }
 
-            //
+            //creates the Carbs object for date dates.get(i)
             if(Helper.containsDay(carbsDates, dates.get(i))){
                 dayIndexes = Helper.dayArrayIndexes(carbsDates, dates.get(i));
                 min = Integer.parseInt(dayIndexes[1]);
@@ -83,7 +83,7 @@ public class splitObjects {
                 c = new Carbs();
             }
 
-            //
+            //creates the FastActingInsulin object for date dates.get(i)
             if(Helper.containsDay(FADates, dates.get(i))){
                 dayIndexes = Helper.dayArrayIndexes(FADates, dates.get(i));
                 min = Integer.parseInt(dayIndexes[1]);
@@ -97,7 +97,7 @@ public class splitObjects {
                 fA = new FastActingInsulin();
             }
 
-            //
+            //creates the LongActingInsulin object for date dates.get(i)
             if(Helper.containsDay(LADates, dates.get(i))){
                 dayIndexes = Helper.dayArrayIndexes(LADates, dates.get(i));
                 min = Integer.parseInt(dayIndexes[1]);
@@ -111,7 +111,7 @@ public class splitObjects {
                 lA = new LongActingInsulin();
             }
 
-            //
+            //creates Exercise object for date dates.get(i)
             if(Helper.containsDay(exerciseDates, dates.get(i))){
                 dayIndexes = Helper.dayArrayIndexes(exerciseDates, dates.get(i));
                 min = Integer.parseInt(dayIndexes[1]);
