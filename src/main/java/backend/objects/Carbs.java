@@ -49,6 +49,13 @@ public class Carbs {
         }
     }
 
+    public void setCarbs(String time, int carb)
+    {
+        Position p;
+        p = Time.positionAt(time);
+        carbsArr[p.getColumnPosition()][p.getRowPosition()] = carb;
+    }
+
     public Carbs(){
 
     }

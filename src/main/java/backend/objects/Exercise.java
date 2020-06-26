@@ -60,6 +60,13 @@ public class Exercise {
         }
     }
 
+    public void setExercise(String time, boolean isExercising)
+    {
+        Position p;
+        p = Time.positionAt(time);
+        exerciseArr[p.getColumnPosition()][p.getRowPosition()] = isExercising;
+    }
+
     public boolean[][] getExerciseArr() {
         return exerciseArr;
     }

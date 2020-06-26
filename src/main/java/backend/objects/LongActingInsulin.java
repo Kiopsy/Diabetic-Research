@@ -11,6 +11,7 @@ public class LongActingInsulin extends Injections {
         super(times, dosage);
     }
 
+    public void setLongActingInsulin(String time, double level){ super.setInjections(time, level);}
     @Override
     public double[][] getInjectionsArr() {
         return super.getInjectionsArr();

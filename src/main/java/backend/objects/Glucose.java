@@ -49,8 +49,10 @@ public class Glucose {
         }
     }
 
-    public void writeGlucose(Position p, int glucose)
+    public void setGlucose(String time, int glucose)
     {
+        Position p;
+        p = Time.positionAt(time);
         glucoseArr[p.getColumnPosition()][p.getRowPosition()] = glucose;
     }
 

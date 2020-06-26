@@ -1,5 +1,8 @@
+import backend.objects.Day;
 import backend.utility.*;
 import gui.initialGUI;
+
+import java.util.ArrayList;
 
 public class main {
 
@@ -14,8 +17,9 @@ public class main {
         String fileDirectory = output[1];
         Output.outputWriter(splitObjects.splitObjectTransfer(Input.parseDexcomCSV(fileAddress)), fileDirectory);
 
-        //Victor's testing for outputing all file names from directory fileDirectory
-        Input.parseLocalCSV(fileDirectory);
+        //allData contains all the data that has been written to the user's PC in the specified output directory
+        ArrayList<ArrayList<Day>> allData = Input.parseLocalCSV(fileDirectory);
+
         program.closeGUI();
 
     }

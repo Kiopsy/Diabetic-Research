@@ -11,6 +11,8 @@ public class FastActingInsulin extends Injections {
         super(times, dosage);
     }
 
+    public void setFastActingInsulin(String time, double level){ super.setInjections(time, level);}
+
     @Override
     public double[][] getInjectionsArr() {
         return super.getInjectionsArr();

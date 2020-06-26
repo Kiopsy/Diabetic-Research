@@ -54,11 +54,12 @@ public class Injections {
         }
     }
 
-    public void updateInjections(Position pos, double level)
+    public void setInjections(String time, double level)
     {
-        injectionsArr[pos.getColumnPosition()][pos.getRowPosition()] = level;
+        Position p;
+        p = Time.positionAt(time);
+        injectionsArr[p.getColumnPosition()][p.getRowPosition()] = level;
     }
-
     public double[][] getInjectionsArr() {
         return injectionsArr;
     }
