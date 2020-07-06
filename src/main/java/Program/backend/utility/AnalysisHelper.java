@@ -1,6 +1,6 @@
-package backend.utility;
+package Program.backend.utility;
 
-import backend.objects.Day;
+import Program.backend.objects.Day;
 
 public class AnalysisHelper {
 

@@ -1,7 +1,7 @@
-package backend.objects;
+package Program.backend.objects;
 
-import backend.utility.Position;
-import backend.utility.Time;
+import Program.backend.utility.Position;
+import Program.backend.utility.Time;
 
 public class Injections {
 
