@@ -1,4 +1,4 @@
-package Program.backend.utility;
+package backend.utility;
 
 public class Position {
 

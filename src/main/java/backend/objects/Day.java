@@ -1,6 +1,6 @@
-package Program.backend.objects;
+package backend.objects;
 
-import Program.backend.utility.Time;
+import backend.utility.Time;
 
 public class Day{
 

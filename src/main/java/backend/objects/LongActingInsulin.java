@@ -1,4 +1,4 @@
-package Program.backend.objects;
+package backend.objects;
 
 public class LongActingInsulin extends Injections {
 

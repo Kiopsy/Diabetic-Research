@@ -1,4 +1,4 @@
-package Program.gui;
+package gui;
 
 public class AnalysisGUI {
 }

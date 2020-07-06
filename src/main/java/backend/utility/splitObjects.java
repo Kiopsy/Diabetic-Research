@@ -1,6 +1,6 @@
-package Program.backend.utility;
+package backend.utility;
 
-import Program.backend.objects.*;
+import backend.objects.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;

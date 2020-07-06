@@ -1,6 +1,6 @@
-package Program.backend.utility;
+package backend.utility;
 
-import Program.backend.objects.*;
+import backend.objects.*;
 import com.opencsv.CSVReader;
 
 import java.io.File;

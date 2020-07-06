@@ -1,5 +1,6 @@
-package Program.backend.objects;
+package backend.objects;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class ObjectTransfer {

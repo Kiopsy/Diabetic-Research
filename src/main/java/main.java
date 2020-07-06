@@ -1,8 +1,6 @@
-package Program;
-
-import Program.backend.objects.Day;
-import Program.backend.utility.*;
-import Program.gui.initialGUI;
+import backend.objects.Day;
+import backend.utility.*;
+import gui.initialGUI;
 
 import java.util.ArrayList;
 

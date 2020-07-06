@@ -1,6 +1,6 @@
-package Program.backend.utility;
+package backend.utility;
 
-import Program.backend.objects.Day;
+import backend.objects.Day;
 
 import com.opencsv.CSVReader;
 
