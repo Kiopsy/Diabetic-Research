@@ -1,0 +1,46 @@
+.button
+{
+-fx-background-color : #FE7E4A;
+}
+.button:hover
+{
+-fx-background-color : #FC573B;
+}
+.button:pressed
+{
+-fx-background-color : #FEA986;
+}
+.menu-button
+{
+-fx-background-color : #C8293E;
+}
+.menu-button:hover
+{
+-fx-background-color : #820130;
+}
+
+//button visuals for the home page
+#homeAccountDetailsBtn
+{
+-fx-background-color : #FCDAC6;
+}
+#homeAccountDetailsBtn:hover
+{
+-fx-text-fill : #C9273C;
+}
+#homeAccountDetailsBtn:pressed
+{
+-fx-text-fill : #FD6A3E;
+}
+#homeSignOutBtn
+{
+-fx-background-color : #FCDAC6;
+}
+#homeSignOutBtn:hover
+{
+-fx-text-fill : #C9273C;
+}
+#homeSignOutBtn:pressed
+{
+-fx-text-fill : #FD6A3E;
+}
