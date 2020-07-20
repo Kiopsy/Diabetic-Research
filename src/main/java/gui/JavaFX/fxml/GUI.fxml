@@ -100,7 +100,7 @@
    <center>
       <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: FCDAC6;" BorderPane.alignment="CENTER">
          <children>
-            <VBox id="homePageVBox" fx:id="homeVBox" layoutX="50.0" layoutY="50.0" prefHeight="537.0" prefWidth="1596.0" style="-fx-background-color: FCDAC6;" visible="false">
+            <VBox id="homePageVBox" fx:id="homeVBox" layoutX="50.0" layoutY="50.0" prefHeight="550.0" prefWidth="1600.0" style="-fx-background-color: FCDAC6;" visible="false">
                <children>
                   <Label prefHeight="145.0" text="Victor Goncalves" textFill="#2c1029">
                      <font>
@@ -154,7 +154,7 @@
                   </Button>
                </children>
             </VBox>
-            <VBox id="inputPageVBox" fx:id="homeVBox1" layoutX="50.0" layoutY="50.0" prefHeight="550.0" prefWidth="1596.0" style="-fx-background-color: FCDAC6;" visible="false">
+            <VBox id="inputPageVBox" fx:id="homeVBox1" layoutX="50.0" layoutY="50.0" prefHeight="550.0" prefWidth="1600.0" style="-fx-background-color: FCDAC6;" visible="false">
                <children>
                   <Label prefHeight="145.0" text="Input" textFill="#2c1029">
                      <font>
@@ -223,19 +223,83 @@
                   </Button>
                </children>
             </VBox>
-            <HBox layoutX="50.0" layoutY="50.0" prefHeight="550.0" prefWidth="1596.0">
-               <children>
-                  <VBox id="inputPageVBox" fx:id="homeVBox11" prefHeight="550.0" prefWidth="1596.0" style="-fx-background-color: FCDAC6;">
+            <ScrollPane layoutX="50.0" layoutY="50.0" prefHeight="550.0" prefWidth="1605.0" stylesheets="@../css/stylesheet.css">
+              <content>
+                <AnchorPane layoutX="50.0" layoutY="50.0" minHeight="0.0" minWidth="0.0" prefHeight="550.0" prefWidth="1600.0" stylesheets="@../css/stylesheet.css">
                      <children>
-                        <Label prefHeight="145.0" text="Analysis" textFill="#2c1029">
-                           <font>
-                              <Font name="Segoe UI" size="96.0" />
-                           </font>
-                        </Label>
+                        <VBox id="inputPageVBox" fx:id="homeVBox11" prefHeight="550.0" prefWidth="1600.0" style="-fx-background-color: FCDAC6;">
+                           <children>
+                              <Label prefHeight="145.0" text="Input" textFill="#2c1029">
+                                 <font>
+                                    <Font name="Segoe UI" size="96.0" />
+                                 </font>
+                              </Label>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fcdac6" height="40.0" stroke="#fcdac6" strokeType="INSIDE" width="1000.0" />
+                              <Label prefHeight="50.0" text="Import Target CSV" textFill="#2c1029">
+                                 <font>
+                                    <Font name="Segoe UI Bold" size="21.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="50.0" text="CSV must be downloaded from Dexcom Clarity" textFill="#2c1029">
+                                 <font>
+                                    <Font name="Segoe UI Italic" size="16.0" />
+                                 </font>
+                              </Label>
+                              <HBox prefHeight="40.0">
+                                 <children>
+                                    <TextField alignment="BASELINE_LEFT" prefHeight="41.0" prefWidth="600.0" promptText="Enter file address here:">
+                                       <font>
+                                          <Font name="Segoe UI Bold" size="21.0" />
+                                       </font>
+                                    </TextField>
+                                    <Button id="selectFileBtn" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="40.0" stylesheets="@../css/stylesheet.css" text="Select File" textFill="WHITE">
+                                       <font>
+                                          <Font name="Segoe UI Bold" size="21.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="50.0" right="50.0" />
+                                       </padding>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fcdac6" height="40.0" stroke="#fcdac6" strokeType="INSIDE" width="1000.0" />
+                              <Label prefHeight="50.0" text="Select Output Directory" textFill="#2c1029">
+                                 <font>
+                                    <Font name="Segoe UI Bold" size="21.0" />
+                                 </font>
+                              </Label>
+                              <HBox prefHeight="40.0">
+                                 <children>
+                                    <TextField alignment="BASELINE_LEFT" prefHeight="41.0" prefWidth="600.0" promptText="Enter output directory here:">
+                                       <font>
+                                          <Font name="Segoe UI Bold" size="21.0" />
+                                       </font>
+                                    </TextField>
+                                    <Button id="selectFileBtn" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="40.0" stylesheets="@../css/stylesheet.css" text="Select File" textFill="WHITE">
+                                       <font>
+                                          <Font name="Segoe UI Bold" size="21.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="50.0" right="50.0" />
+                                       </padding>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fcdac6" height="40.0" stroke="#fcdac6" strokeType="INSIDE" width="1000.0" />
+                              <Button id="selectFileBtn" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="40.0" stylesheets="@../css/stylesheet.css" text="Update" textFill="WHITE">
+                                 <font>
+                                    <Font name="Segoe UI Bold" size="21.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="50.0" right="50.0" />
+                                 </padding>
+                              </Button>
+                           </children>
+                        </VBox>
                      </children>
-                  </VBox>
-               </children>
-            </HBox>
+                  </AnchorPane>
+              </content>
+            </ScrollPane>
          </children></Pane>
    </center>
    <bottom>
