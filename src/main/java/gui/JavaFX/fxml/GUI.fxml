@@ -26,7 +26,7 @@
                   </ImageView>
                </children></Pane>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fe7e4a" height="20.0" stroke="#fe7e4a" strokeType="INSIDE" width="225.0" />
-            <Button id="homeBtn" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="225.0" stylesheets="@../css/stylesheet.css" text="HOME" textFill="WHITE" onAction="#homeButtonClicked">
+            <Button id="homeBtn" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#homeButtonClicked" prefHeight="60.0" prefWidth="225.0" stylesheets="@../css/stylesheet.css" text="HOME" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Bold" size="16.0" />
                </font>
@@ -37,7 +37,7 @@
                   <Insets left="50.0" />
                </padding></Button>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fe7e4a" height="5.0" stroke="#fe7e4a" strokeType="INSIDE" width="225.0" />
-            <Button id="inputBtn" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="225.0" stylesheets="@../css/stylesheet.css" text="INPUT" textFill="WHITE" onAction="#inputButtonClicked">
+            <Button id="inputBtn" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#inputButtonClicked" prefHeight="60.0" prefWidth="225.0" stylesheets="@../css/stylesheet.css" text="INPUT" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Bold" size="16.0" />
                </font>
@@ -48,7 +48,7 @@
                   <Insets left="50.0" />
                </padding></Button>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fe7e4a" height="5.0" stroke="#fe7e4a" strokeType="INSIDE" width="225.0" />
-            <Button id="analysisBtn" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="225.0" stylesheets="@../css/stylesheet.css" text="ANALYSIS" textFill="WHITE" onAction="#analysisButtonClicked">
+            <Button id="analysisBtn" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#analysisButtonClicked" prefHeight="60.0" prefWidth="225.0" stylesheets="@../css/stylesheet.css" text="ANALYSIS" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Bold" size="16.0" />
                </font>
@@ -59,7 +59,7 @@
                   <FontAwesomeIcon fill="WHITE" glyphName="LINE_CHART" />
                </graphic></Button>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fe7e4a" height="5.0" stroke="#fe7e4a" strokeType="INSIDE" width="225.0" />
-            <Button id="aboutBtn" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="225.0" stylesheets="@../css/stylesheet.css" text="ABOUT" textFill="WHITE" onAction="#aboutButtonClicked">
+            <Button id="aboutBtn" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#aboutButtonClicked" prefHeight="60.0" prefWidth="225.0" stylesheets="@../css/stylesheet.css" text="ABOUT" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Bold" size="16.0" />
                </font>
@@ -247,7 +247,7 @@
                               </Label>
                               <HBox prefHeight="40.0">
                                  <children>
-                                    <TextField alignment="BASELINE_LEFT" prefHeight="41.0" prefWidth="600.0" promptText="Enter file address here:">
+                                    <TextField id="inputCSVPath" alignment="BASELINE_LEFT" prefHeight="41.0" prefWidth="600.0" promptText="Enter file address here:">
                                        <font>
                                           <Font name="Segoe UI Bold" size="21.0" />
                                        </font>
@@ -270,7 +270,7 @@
                               </Label>
                               <HBox prefHeight="40.0">
                                  <children>
-                                    <TextField alignment="BASELINE_LEFT" prefHeight="41.0" prefWidth="600.0" promptText="Enter output directory here:">
+                                    <TextField id="outputCSVPath" alignment="BASELINE_LEFT" prefHeight="41.0" prefWidth="600.0" promptText="Enter output directory here:">
                                        <font>
                                           <Font name="Segoe UI Bold" size="21.0" />
                                        </font>
