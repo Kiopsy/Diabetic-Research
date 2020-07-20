@@ -100,7 +100,7 @@
    <center>
       <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: FCDAC6;" BorderPane.alignment="CENTER">
          <children>
-            <VBox id="homePageVBox" fx:id="homeVBox" layoutX="50.0" layoutY="50.0" prefHeight="537.0" prefWidth="1596.0" style="-fx-background-color: FCDAC6;">
+            <VBox id="homePageVBox" fx:id="homeVBox" layoutX="50.0" layoutY="50.0" prefHeight="537.0" prefWidth="1596.0" style="-fx-background-color: FCDAC6;" visible="false">
                <children>
                   <Label prefHeight="145.0" text="Victor Goncalves" textFill="#2c1029">
                      <font>
@@ -223,6 +223,19 @@
                   </Button>
                </children>
             </VBox>
+            <HBox layoutX="50.0" layoutY="50.0" prefHeight="550.0" prefWidth="1596.0">
+               <children>
+                  <VBox id="inputPageVBox" fx:id="homeVBox11" prefHeight="550.0" prefWidth="1596.0" style="-fx-background-color: FCDAC6;">
+                     <children>
+                        <Label prefHeight="145.0" text="Analysis" textFill="#2c1029">
+                           <font>
+                              <Font name="Segoe UI" size="96.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
          </children></Pane>
    </center>
    <bottom>
