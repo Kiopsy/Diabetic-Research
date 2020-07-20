@@ -19,6 +19,31 @@
 -fx-background-color : #820130;
 }
 
+.scroll-pane{
+    -fx-background-color: FCDBC8;
+}
+.scroll-bar:horizontal, .scroll-bar:vertical{
+    -fx-background-color : transparent;
+}
+.increment-button, decrement-button{
+    -fx-background-color : transparent;
+    -fx-border-color : transparent;
+}
+.scroll-bar:horizontal .track,
+.scroll-bar:vertical .track{
+    -fx-background-color : transparent;
+    -fx-border-color : transparent;
+    -fx-background-radius : 0en;
+}
+.scroll-bar:horizontal .thumb,
+.scroll-bar:vertical .thumb{
+    -fx-background-color : C8293E;
+    -fx-background-radius : 5en;
+}
+
+.scroll-pane > .corner{
+    fx-background-color: #FCDBC8;
+}
 //button visuals for the home page
 #homeAccountDetailsBtn
 {
