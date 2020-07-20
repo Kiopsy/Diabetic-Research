@@ -26,7 +26,7 @@
                   </ImageView>
                </children></Pane>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fe7e4a" height="20.0" stroke="#fe7e4a" strokeType="INSIDE" width="225.0" />
-            <Button id="homeBtn" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="225.0" stylesheets="@../css/stylesheet.css" text="HOME" textFill="WHITE">
+            <Button id="homeBtn" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="225.0" stylesheets="@../css/stylesheet.css" text="HOME" textFill="WHITE" onAction="#homeButtonClicked">
                <font>
                   <Font name="Segoe UI Bold" size="16.0" />
                </font>
@@ -37,7 +37,7 @@
                   <Insets left="50.0" />
                </padding></Button>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fe7e4a" height="5.0" stroke="#fe7e4a" strokeType="INSIDE" width="225.0" />
-            <Button id="inputBtn" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="225.0" stylesheets="@../css/stylesheet.css" text="INPUT" textFill="WHITE">
+            <Button id="inputBtn" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="225.0" stylesheets="@../css/stylesheet.css" text="INPUT" textFill="WHITE" onAction="#inputButtonClicked">
                <font>
                   <Font name="Segoe UI Bold" size="16.0" />
                </font>
@@ -48,7 +48,7 @@
                   <Insets left="50.0" />
                </padding></Button>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fe7e4a" height="5.0" stroke="#fe7e4a" strokeType="INSIDE" width="225.0" />
-            <Button id="analysisBtn" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="225.0" stylesheets="@../css/stylesheet.css" text="ANALYSIS" textFill="WHITE">
+            <Button id="analysisBtn" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="225.0" stylesheets="@../css/stylesheet.css" text="ANALYSIS" textFill="WHITE" onAction="#analysisButtonClicked">
                <font>
                   <Font name="Segoe UI Bold" size="16.0" />
                </font>
@@ -59,7 +59,7 @@
                   <FontAwesomeIcon fill="WHITE" glyphName="LINE_CHART" />
                </graphic></Button>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fe7e4a" height="5.0" stroke="#fe7e4a" strokeType="INSIDE" width="225.0" />
-            <Button id="aboutBtn" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="225.0" stylesheets="@../css/stylesheet.css" text="ABOUT" textFill="WHITE">
+            <Button id="aboutBtn" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="225.0" stylesheets="@../css/stylesheet.css" text="ABOUT" textFill="WHITE" onAction="#aboutButtonClicked">
                <font>
                   <Font name="Segoe UI Bold" size="16.0" />
                </font>
@@ -172,7 +172,7 @@
                         <Font name="Segoe UI Italic" size="16.0" />
                      </font>
                   </Label>
-                  <HBox prefHeight="40.0">
+                  <HBox id="analysisPageVBox" prefHeight="40.0">
                      <children>
                         <TextField alignment="BASELINE_LEFT" prefHeight="41.0" prefWidth="600.0" promptText="Enter file address here:">
                            <font>
