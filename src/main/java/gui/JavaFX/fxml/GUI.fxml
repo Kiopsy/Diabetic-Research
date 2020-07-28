@@ -100,7 +100,7 @@
    <center>
       <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: FCDAC6;" BorderPane.alignment="CENTER">
          <children>
-            <VBox id="homePageVBox" fx:id="homeVBox" layoutX="50.0" layoutY="50.0" prefHeight="550.0" prefWidth="1600.0" style="-fx-background-color: FCDAC6;" visible="false">
+            <VBox id="homePageVBox" fx:id="homeVBox" layoutX="50.0" layoutY="50.0" prefHeight="550.0" prefWidth="1600.0" style="-fx-background-color: FCDAC6;">
                <children>
                   <Label prefHeight="145.0" text="Victor Goncalves" textFill="#2c1029">
                      <font>
@@ -225,42 +225,59 @@
             </VBox>
             <VBox id="inputPageVBox" fx:id="homeVBox111" layoutX="50.0" layoutY="50.0" prefHeight="550.0" prefWidth="1600.0" style="-fx-background-color: FCDAC6;">
                <children>
-                  <Label prefHeight="145.0" text="Analysis" textFill="#2c1029">
-                     <font>
-                        <Font name="Segoe UI" size="96.0" />
-                     </font>
-                  </Label>
-                  <Label prefHeight="50.0" text="Select range of dates to analyze" textFill="#2c1029">
-                     <font>
-                        <Font name="Segoe UI Italic" size="16.0" />
-                     </font>
-                  </Label>
-                  <HBox prefHeight="35.0" prefWidth="1595.0" style="-fx-background-color: #FCDBC8;">
+                  <HBox prefHeight="145.0" prefWidth="1600.0" style="-fx-background-color: FCDBC8;">
                      <children>
-                        <DatePicker prefHeight="35.0">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </DatePicker>
-                        <DatePicker prefHeight="35.0">
-                           <HBox.margin>
-                              <Insets left="200.0" />
-                           </HBox.margin>
-                        </DatePicker>
-                        <Button mnemonicParsing="false" prefHeight="40.0" stylesheets="@../css/stylesheet.css" text="GO!" textFill="WHITE">
+                        <Label prefHeight="145.0" text="Analysis" textFill="#2c1029">
+                           <font>
+                              <Font name="Segoe UI" size="96.0" />
+                           </font>
+                        </Label>
+                        <VBox prefHeight="145.0" style="-fx-background-color: FCDBC8;">
+                           <children>
+                              <Label prefHeight="5.0" prefWidth="219.0" text="Select range of dates to analyze" textFill="#2c1029">
+                                 <font>
+                                    <Font name="Segoe UI Italic" size="16.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="30.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <HBox prefHeight="35.0" style="-fx-background-color: #FCDBC8;">
+                                 <children>
+                                    <DatePicker prefHeight="35.0">
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </DatePicker>
+                                    <DatePicker prefHeight="35.0">
+                                       <HBox.margin>
+                                          <Insets left="200.0" />
+                                       </HBox.margin>
+                                    </DatePicker>
+                                    <Button mnemonicParsing="false" prefHeight="40.0" stylesheets="@../css/stylesheet.css" text="GO!" textFill="WHITE">
+                                       <HBox.margin>
+                                          <Insets left="50.0" />
+                                       </HBox.margin>
+                                       <padding>
+                                          <Insets left="50.0" right="50.0" />
+                                       </padding>
+                                       <font>
+                                          <Font name="Segoe UI Bold" size="21.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="15.0" />
+                                 </VBox.margin>
+                              </HBox>
+                           </children>
                            <HBox.margin>
                               <Insets left="50.0" />
                            </HBox.margin>
-                           <padding>
-                              <Insets left="50.0" right="50.0" />
-                           </padding>
-                           <font>
-                              <Font name="Segoe UI Bold" size="21.0" />
-                           </font>
-                        </Button>
+                        </VBox>
                      </children>
                   </HBox>
-                  <ScrollPane hbarPolicy="NEVER" prefHeight="2.0" prefWidth="1600.0" stylesheets="@../css/stylesheet.css">
+                  <ScrollPane hbarPolicy="NEVER" prefHeight="425.0" prefWidth="1600.0" stylesheets="@../css/stylesheet.css">
                     <content>
                       <AnchorPane layoutX="50.0" layoutY="50.0" minHeight="0.0" minWidth="0.0" prefHeight="550.0" prefWidth="1600.0" stylesheets="@../css/stylesheet.css">
                            <children>
