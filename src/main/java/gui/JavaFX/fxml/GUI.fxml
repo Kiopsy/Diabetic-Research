@@ -154,7 +154,7 @@
                   </Button>
                </children>
             </VBox>
-            <VBox id="inputPageVBox" fx:id="homeVBox1" layoutX="50.0" layoutY="50.0" prefHeight="550.0" prefWidth="1600.0" style="-fx-background-color: FCDAC6;" visible="false">
+            <VBox id="inputPageVBox" fx:id="homeVBox1" layoutX="50.0" layoutY="50.0" prefHeight="550.0" prefWidth="1600.0" style="-fx-background-color: FCDAC6;">
                <children>
                   <Label prefHeight="145.0" text="Input" textFill="#2c1029">
                      <font>
@@ -252,7 +252,7 @@
                                           <Font name="Segoe UI Bold" size="21.0" />
                                        </font>
                                     </TextField>
-                                    <Button id="selectFileBtn" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="40.0" stylesheets="@../css/stylesheet.css" text="Select File" textFill="WHITE">
+                                    <Button id="selectInputFileBtn" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#inputFileButtonClicked" prefHeight="40.0" stylesheets="@../css/stylesheet.css" text="Select File" textFill="WHITE">
                                        <font>
                                           <Font name="Segoe UI Bold" size="21.0" />
                                        </font>
@@ -275,7 +275,7 @@
                                           <Font name="Segoe UI Bold" size="21.0" />
                                        </font>
                                     </TextField>
-                                    <Button id="selectFileBtn" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="40.0" stylesheets="@../css/stylesheet.css" text="Select File" textFill="WHITE">
+                                    <Button id="selectOutputFileBtn" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#outputFileButtonClicked" prefHeight="40.0" stylesheets="@../css/stylesheet.css" text="Select File" textFill="WHITE">
                                        <font>
                                           <Font name="Segoe UI Bold" size="21.0" />
                                        </font>
@@ -286,7 +286,7 @@
                                  </children>
                               </HBox>
                               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fcdac6" height="40.0" stroke="#fcdac6" strokeType="INSIDE" width="1000.0" />
-                              <Button id="selectFileBtn" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="40.0" stylesheets="@../css/stylesheet.css" text="Update" textFill="WHITE">
+                              <Button id="updateBtn" alignment="BASELINE_LEFT" onAction="#updateBtnClicked" mnemonicParsing="false" prefHeight="40.0" stylesheets="@../css/stylesheet.css" text="Update" textFill="WHITE">
                                  <font>
                                     <Font name="Segoe UI Bold" size="21.0" />
                                  </font>
