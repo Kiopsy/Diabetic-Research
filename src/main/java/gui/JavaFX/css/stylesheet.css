@@ -20,7 +20,7 @@
 }
 
 .scroll-pane{
-    -fx-background-color: FCDBC8;
+    -fx-background-color: #FCDBC8;
 }
 .scroll-bar:horizontal, .scroll-bar:vertical{
     -fx-background-color : transparent;
