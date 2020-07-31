@@ -6,10 +6,11 @@ import backend.utility.splitObjects;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -18,42 +19,84 @@ public class Controller implements Initializable {
     private String fileAddress;
     private String fileDirectory;
 
-    @FXML
-    private Button homeBtn;
-    @FXML
-    private Button inputBtn;
-    @FXML
-    private Button analysisBtn;
-    @FXML
-    private Button aboutBtn;
 
+    //buttons on the left side of the GUI
     @FXML
-    private VBox homePageVBox;
+    private Button homeButton;
     @FXML
-    private VBox inputPageVBox;
+    private Button inputButton;
     @FXML
-    private VBox analysisPageVBox;
+    private Button analysisButton;
+    @FXML
+    private Button aboutButton;
 
+    //Top right MenuButton and MenuItem
     @FXML
-    private TextField inputCSVPath;
+    private MenuButton userMenuButton;
     @FXML
-    private TextField outputCSVPath;
+    private MenuItem signOutMenuItem;
+    @FXML
+    private MenuItem accountMenuItem;
+
+    //Home page components
+    @FXML
+    private VBox homeVBox;
+    @FXML
+    private Label fullNameLabel;
+    @FXML
+    private Label userBirthDateLabel;
+    @FXML
+    private Label userNameLabel;
+    @FXML
+    private Button signOutButton;
+    @FXML
+    private Button accountDetailsButton;
+
+    //Analysis page components
+    @FXML
+    private VBox analysisVBox;
+    @FXML
+    private DatePicker startDatePicker;
+    @FXML
+    private DatePicker endDatePicker;
+    @FXML
+    private Button goButton;
+
+
+    //Input page components
+    @FXML
+    private VBox inputVBox;
+    @FXML
+    private TextField importTextField;
+    @FXML
+    private TextField directoryTextField;
+    @FXML
+    private Button importFileButton;
+    @FXML
+    private Button directoryFileButton;
+    @FXML
+    private Button inputUpdateButton;
+
+
+
+    //About page components
+        //TODO: Add when About page is implemented
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        homePageVBox.toFront();
+        inputVBox.toFront();
     }
 
     public void homeButtonClicked(ActionEvent actionEvent) {
-        homePageVBox.toFront();
+        homeVBox.toFront();
     }
 
     public void inputButtonClicked(ActionEvent actionEvent) {
-        inputPageVBox.toFront();
+        inputVBox.toFront();
     }
 
     public void analysisButtonClicked(ActionEvent actionEvent) {
-        analysisPageVBox.toFront();
+        analysisVBox.toFront();
     }
 
     public void aboutButtonClicked(ActionEvent actionEvent) {
@@ -61,16 +104,50 @@ public class Controller implements Initializable {
     }
 
     public void inputFileButtonClicked(ActionEvent actionEvent) {
-        fileAddress = inputCSVPath.getText();
+        FileChooser fc = new FileChooser();
+        File file = fc.showOpenDialog(null);
+
+        if (file != null) {
+
+            importFileButton.setText(file.getAbsolutePath());
+        }
     }
 
-    public void outputFileButtonClicked(ActionEvent actionEvent) {
-        fileDirectory = outputCSVPath.getText();
+    public void outputFileButtonClicked(ActionEvent actionEvent){
+        FileChooser fc = new FileChooser();
+        File file = fc.showOpenDialog(null);
+
+        if (file != null) {
+
+            directoryFileButton.setText(file.getAbsolutePath());
+        }
     }
 
-    public void updateBtnClicked(ActionEvent actionEvent) {
+    public void inputUpdateButtonClicked(ActionEvent actionEvent) {
+        fileAddress = importTextField.getText();
+        fileDirectory = directoryTextField.getText();
         Output.outputWriter(splitObjects.splitObjectTransfer(Input.parseDexcomCSV(fileAddress)), fileDirectory);
     }
+    @FXML
+    void goButtonClicked(ActionEvent event) {
 
+    }
+    @FXML
+    void accountDetailsButtonClicked(ActionEvent event) {
+
+    }
+    @FXML
+    void signOutButtonClicked(ActionEvent event) {
+
+    }
+    @FXML
+    void accountMenuItemClicked(ActionEvent event) {
+
+    }
+
+    @FXML
+    void signOutMenuItemClicked(ActionEvent event) {
+
+    }
     //TODO: Add ActionListener for Update
 }
